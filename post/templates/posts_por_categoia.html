@@ -1,0 +1,7 @@
+<h1>Posts da categoria {{ categoria.nome }}</h1>
+<ul>
+  {% for post in posts %}
+    <li>{{ post.titulo }}</li>
+    <p>{{ post.conteudo }}</p>
+  {% endfor %}
+</ul>
