@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* CABEÇALHO */
+.botao-entrar {
+  color: #fff;
+  background-color: #7c6afa;
+  border: none;
+}
+
+.font-titulos {
+  font-family: "Share Tech Mono", monospace;
+}
+
+.font-titulos-destaque {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 50px;
+}
+
+.style-link-color {
+  color: #7c6afa;
+}
