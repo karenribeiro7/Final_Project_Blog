@@ -1,17 +1,72 @@
-
-.font-titulos {
-    font-family: "Share Tech Mono", monospace;
-  }
-
-  .font-titulos-destaque {
-    font-family: "Share Tech Mono", monospace;
-    font-size: 50px;
-  }
-
-.style-link-color{
-  color:#7c6afa;
+body {
+  margin: 0;
+  padding: 0;
 }
 
+/* CABEÇALHO */
 
+.botao-entrar {
+  color: #fff;
+  background-color: #7c6afa;
+  border: none;
+  padding: 6px 24px;  
+}
 
+input[type="search"]::placeholder {
+  color: #85848B;
+}
 
+.barra_pesquisa {
+  background-color: rgba(217, 217, 217, 0.3);  
+  border: 0.5px solid rgba(200, 194, 194, 0.3);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; 
+}
+
+.barra_pesquisa:focus {  
+  border-color: rgba(124, 106, 250, 1);  
+  box-shadow: 0 0 0 0.25rem rgba(124, 106, 250, 0.25);
+}
+
+.btn-outline-success-ctech {
+  background-color: #7c6afa;
+  border-color: #7c6afa;
+}
+
+.btn-outline-success-ctech:hover {
+  color: #fff;
+  background-color: #7c6afa;
+  border-color: #7c6afa;
+}
+
+.btn-outline-success-ctech:focus {
+  color: #fff;
+  background-color: #7c6afa;
+  border-color: #7c6afa;
+  box-shadow: 0 0 0 0.25rem rgba(125, 125, 125, 0.25);
+}
+
+.btn-outline-success-ctech:active {
+  color: #fff;
+  background-color: #7c6afa;
+  border-color: #7c6afa;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.font-titulos {
+  font-family: "Share Tech Mono", monospace;
+}
+
+.font-titulos-destaque {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 50px;
+}
+
+.style-link-color {
+  color: #7c6afa;
+}
+
+@media (max-width: 992px) {
+  .botao-entrar {    
+    margin-top: 20px;  
+  }
+}
