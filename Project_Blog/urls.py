@@ -16,14 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from post.views import postagem
+from post.views import post
 from inicio.views import inicio
 from cadastro.views import cadastrar, login
+from rest_framework.routers import SimpleRouter
+from cadastro.views import cadastroModelViewSet
+
+router = SimpleRouter(trailing_slash=False)
+router.register('cadastro', cadastroModelViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio),
-    path('postagem/', postagem),
+    # path('postagem/', postagem),
     path('cadastro/', cadastrar),
-    path('login/', login)
+    path('login/', login),
+    path('createPost/', post)
 ]
+urlpatterns += router.urls

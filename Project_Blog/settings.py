@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'inicio',
     'cadastro',
     'post',
+    'categorias',
+    'rest_framework',
+    # 'rest_api',
 ]
 
 MIDDLEWARE = [
@@ -83,6 +86,12 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'redis://127.0.0.1:6379',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -124,3 +133,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
