@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'post',
     'categorias',
     'rest_framework',
-     # 'rest_api',
+    'rest_api',
 ]
 
 MIDDLEWARE = [
