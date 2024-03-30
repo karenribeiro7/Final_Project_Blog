@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from post.views import post
+from post.views import criar_postagem
 from inicio.views import inicio
 from cadastro.views import cadastrar, login
 from rest_framework.routers import SimpleRouter
 from cadastro.views import cadastroModelViewSet
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = SimpleRouter(trailing_slash=False)
 router.register('cadastro', cadastroModelViewSet)
@@ -31,6 +33,9 @@ urlpatterns = [
     # path('postagem/', postagem),
     path('cadastro/', cadastrar),
     path('login/', login),
-    path('createPost/', post)
+    path('creatPost/', criar_postagem),
+    #path
 ]
 urlpatterns += router.urls
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
