@@ -36,6 +36,7 @@ urlpatterns = [
     path('creatPost/', criar_postagem),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include ('rest_api.urls', namespace ='api'))
+   
 ]
 
 urlpatterns += router.urls
