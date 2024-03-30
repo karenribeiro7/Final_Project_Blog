@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from post.views import criar_postagem
+from post.views import cria_postagem, lista_postagem,edita_postagem, exclui_postagem
 from inicio.views import inicio
 from cadastro.views import cadastrar, login
 from rest_framework.routers import SimpleRouter
@@ -30,13 +30,14 @@ router.register('cadastro', cadastroModelViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio),
-    # path('postagem/', postagem),
     path('cadastro/', cadastrar),
     path('login/', login),
-    path('creatPost/', criar_postagem),
+    path('cria_postagem/', cria_postagem, name='cria_postagem'),
+    path('lista_postagens/', lista_postagem, name='lista_postagens'),
+    path('edita_postagem/<int:postagem_id>/', edita_postagem, name='edita_postagem'),
+    path('exclui_postagem/<int:postagem_id>/', exclui_postagem, name='exclui_postagem'),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include ('rest_api.urls', namespace ='api'))
-   
 ]
 
 urlpatterns += router.urls

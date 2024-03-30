@@ -1,7 +1,7 @@
 from django.db import models
 from categorias.models import Categoria
 
-class Postagem(models.Model):
+class criarPostagem(models.Model):
     titulo = models.CharField(max_length=100, default='')
     mensagem = models.TextField()
     autor = models.CharField(max_length=100, default='')
@@ -10,6 +10,6 @@ class Postagem(models.Model):
     categoria = models.ManyToManyField(Categoria)
     data_postagem = models.DateTimeField(auto_now_add=True)
 
-class Meta:
+    class Meta:
         verbose_name = 'Postagem'
         verbose_name_plural ='Postagens'
