@@ -1,0 +1,21 @@
+{% extends 'galeria/base.html' %}
+{% load static %}
+{% block title %}Área do Usuário - Suas Postagens{% endblock %}
+
+{% block login %}
+<div class="cabecalho_usuario">
+    <a href="#" class="font-titulos media-desktop">Olá, Usuário<!-- {{ usuario.nome }}-->!</a>
+    <a href="#" class="nav-link font-titulos media-mobile">OLÁ, USUÁRIO<!-- {{ usuario.nome }}-->! </a>
+    <div class="logo_usuario"></div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<main class="painel_usuario">
+    <div class="container-fluid">
+        
+    </div>
+</main>
+
+{% endblock %}

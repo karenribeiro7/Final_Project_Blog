@@ -3,6 +3,36 @@ body {
   padding: 0;
 }
 
+.font-titulos {
+  font-family: "Share Tech Mono", monospace;
+}
+
+.font-titulos-destaque {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 45px;
+}
+
+.font-titulos-destaque2 {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 35px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+  .font-titulos-destaque {
+    font-size: 30px;
+  }
+
+  .font-titulos-destaque2 {
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+
+}
+
 /* CABEÇALHO */
 
 .botao-entrar {
@@ -52,13 +82,8 @@ input[type="search"]::placeholder {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
-.font-titulos {
-  font-family: "Share Tech Mono", monospace;
-}
-
-.font-titulos-destaque {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 50px;
+.media-mobile {
+  display: none;
 }
 
 .style-link-color {
@@ -71,7 +96,52 @@ input[type="search"]::placeholder {
   }
 }
 
-/* navegação categorias */
+/* alternativas login */
+
+.cabecalho_usuario {
+  display: inline-flex;
+  place-items: center;
+  place-content: center;
+}
+
+.media-mobile {
+  display: none;
+}
+
+.cabecalho_usuario a {
+  text-decoration: none;
+  color: #000;
+  padding-right: 8px;
+}
+
+.logo_usuario {
+  background-color: rgba(30, 215, 96, 0.85);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+}
+
+@media screen and (max-width: 576px) {
+  .media-mobile {
+    margin-top: 20px;
+    display: block;
+  }
+
+  .cabecalho_usuario a {
+    color: rgba(125, 125, 125, 1);
+  }
+
+  .media-desktop {
+    display: none;
+  }
+
+  .logo_usuario {
+    display: none;
+  }
+
+}
+
+/* NAVEGAÇÃO CATEGORIAS */
 
 .categorias {
   list-style: none;
@@ -122,14 +192,14 @@ input[type="search"]::placeholder {
   text-decoration: none;
 }
 
-.rodape a:active:not(label) ,
+.rodape a:active:not(label),
 .rodape a:visited:not(label),
-.rodape a:link:not(label) {  
+.rodape a:link:not(label) {
   color: #85848B;
 }
 
 .rodape a:hover,
-.rodape a:focus {  
+.rodape a:focus {
   color: #7c6afa;
 }
 
@@ -156,7 +226,7 @@ input[type="search"]::placeholder {
   line-height: 30px;
 }
 
-.links-rodape i{
+.links-rodape i {
   display: none;
 }
 
@@ -174,7 +244,8 @@ input[type="search"]::placeholder {
   .links-rodape ul {
     display: none;
   }
-  .links-rodape i{
+
+  .links-rodape i {
     display: inline-block;
   }
 
@@ -182,14 +253,13 @@ input[type="search"]::placeholder {
   #toggle2:checked+.toggle_botao+ul,
   #toggle3:checked+.toggle_botao+ul,
   #toggle4:checked+.toggle_botao+ul {
-    display: block;  
+    display: block;
   }
 
   .container-links-rodape {
     display: block;
   }
 }
-
 
 .rodape_autoria p {
   font-family: "Share Tech Mono", monospace;
@@ -215,4 +285,272 @@ input[type="search"]::placeholder {
   .rodape_autoria p {
     font-size: 10px;
   }
+}
+
+
+/* POSTAGENS DE USUÁRIOS */
+.titulo_suas_postagens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px 80px 0 80px;
+  align-items: center;
+}
+
+.retornar_link {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 16px;
+  color: #7c6afa;
+  margin: 0;
+  padding: 0 0 30px 80px;
+}
+
+.botao-criar-post {
+  background-color: #7c6afa;
+  border: none;
+  color: #fff;
+  padding: 0 40px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 18px;
+  height: 40px;
+}
+
+.subtitulo_suas_postagens p {
+  display: inline-block;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 23px;
+  color: #7c6afa;
+  margin: 0 80px 30px 80px;
+  align-items: center;
+  border-bottom: 3px solid #7c6afa;
+}
+
+.pesquisa_suas_postagens {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px;
+}
+
+.checkbox_selecao {
+  display: inline-flex;
+  margin: 20px 0 30px 42px;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.checkbox_selecao p {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 16px;
+  color: #85848B;
+  margin: 0 20px 0 0;
+}
+
+/* Estilos para o botão de checkbox */
+.botao-checkbox {
+  padding: 1px 5px;
+  cursor: pointer;
+  border: 2px solid #7c6afa;
+  border-radius: 8px;
+  color: transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+input[type="checkbox"]:checked+.botao-checkbox {
+  background-color: #7c6afa;
+  border-color: #7c6afa;
+  color: #fff;
+}
+
+@media screen and (max-width: 576px) {
+  .titulo_suas_postagens {
+    padding: 30px 20px 10px 20px;
+    gap: 10px;
+  }
+
+  .retornar_link {
+    padding: 10px 0 20px 20px;
+    font-size: 14px;
+  }
+
+  .botao-criar-post {
+    padding: 0 20px;
+    font-size: 14px;
+    height: 30px;
+  }
+
+  .subtitulo_suas_postagens p {
+    display: inline-block;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 18px;
+    color: #7c6afa;
+    margin: 0 20px;
+    align-items: center;
+    border-bottom: 3px solid #7c6afa;
+  }
+
+  .pesquisa_suas_postagens {
+    margin: 0;
+    padding: 0 20px;
+  }
+
+  .checkbox_selecao {
+    margin-left: 0px;
+  }
+}
+
+.postagens_usuario {
+  margin: 0 80px 200px 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sua_postagem {
+  display: flex;
+  padding: 30px 80px 30px 40px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 50px;
+  border-bottom: 1px solid rgba(217, 217, 217, 1);
+  border-top: 1px solid rgba(217, 217, 217, 1);
+  margin: 30px 0;
+}
+
+.checkbox_post {
+  padding: 1px 5px;
+  cursor: pointer;
+  border: 2px solid #7c6afa;
+  border-radius: 8px;
+  color: transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+input[type="checkbox"]:checked+.checkbox_post {
+  background-color: #7c6afa;
+  border-color: #7c6afa;
+  color: #fff;
+}
+
+.imagem_post {
+  max-width: 270px;
+}
+
+.conteudo_post {
+  display: block;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.conteudo_post:nth-child(3) {
+  flex-grow: 1;
+  align-self: start;
+}
+
+.data_tag {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: center;
+  gap: 10px;
+}
+
+.data_post {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 14px;
+  color: rgba(133, 132, 139, 1);
+}
+
+.tag_post {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 14px;
+  color: #7c6afa;
+  background-color: rgba(217, 217, 217, 1);
+  padding: 1px 10px;
+}
+
+.parcial_post {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  max-width: 500px;
+}
+
+.post_completo_link {
+  text-decoration: none;
+  color: #7c6afa;
+  font-family: "Share Tech Mono", monospace;
+}
+
+.edicao_post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.custom-icon-color {
+  color: #fff;
+}
+
+.btn-editar {
+  background-color: #7c6afa;
+  border: none;
+  padding: 6px 20px;
+}
+
+.btn-excluir {
+  background-color: #F45252;
+  border: none;
+  padding: 6px 20px;
+}
+
+.btn-ver-mais {
+  display: inline-block;
+  background-color: transparent;
+  font-family: "Share Tech Mono", monospace;
+  border: 1px solid #7c6afa;
+  color: #7c6afa;
+  padding: 6px 20px;
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 576px) {
+  .postagens_usuario {
+    margin: 0 20px 50px 20px;
+  }
+
+  .sua_postagem {
+    padding: 30px 40px 30px 40px;
+    gap: 25px;
+  }
+
+  .data_tag {
+    flex-direction: column;
+    gap: 0px;
+    margin-bottom: 10px;
+  }
+
+  .data_post {
+    margin: 0;
+  }
+
+  .parcial_post {
+    font-size: 14px;
+  }
+
+  .edicao_post {
+    flex-direction: row;
+  }
+
+  .checkbox_post {
+    padding: 0.5px 4px;
+  }
+
 }

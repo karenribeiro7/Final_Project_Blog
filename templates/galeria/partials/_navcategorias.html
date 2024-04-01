@@ -1,23 +1,26 @@
 {% load static %}
 
 <br>
-
+<!-- {% for categoria in categorias %} -->
 <nav class="nav-categoria">
     <ul class="categorias flex-container">
         <li class="nav-item">
             <a class="font-titulos link-ativo" aria-current="page" href="#">TUDO</a>
         </li>
         <li class="nav-item categoria-item">
-        <a class="font-titulos" href="#">Categoria 1</a>
-      </li>
-      <li class="nav-item categoria-item">
-        <a class="font-titulos" href="#">Categoria 2</a>
-      </li>
-      <li class="nav-item categoria-item">
-        <a class="font-titulos" href="#">Categoria 2</a>
-      </li>
-      <li class="nav-item categoria-item">
-        <a class="font-titulos" href="#">Categoria 3</a>
-      </li>
+            <a class="font-titulos" href="#">Categoria 1<!-- {{ categoria.nome }} --></a>
+        </li>
+        <!-- Demais itens abaixo podem ser apagados uma vez que BD é implementado -->
+        <!-- Verificar implementação de links baseados em BD -->
+        <li class="nav-item categoria-item">
+            <a class="font-titulos" href="#">Categoria 2</a>
+        </li>
+        <li class="nav-item categoria-item">
+            <a class="font-titulos" href="#">Categoria 2</a>
+        </li>
+        <li class="nav-item categoria-item">
+            <a class="font-titulos" href="#">Categoria 3</a>
+        </li>
     </ul>
 </nav>
+<!-- {% endfor %} -->
