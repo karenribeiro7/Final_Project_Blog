@@ -1,6 +1,6 @@
 {% extends 'galeria/base.html' %}
 {% load static %}
-{% block title %}Área do Usuário - Suas Postagens{% endblock %}
+{% block title %}Painel do Usuário{% endblock %}
 
 {% block login %}
 <div class="cabecalho_usuario">
@@ -13,8 +13,25 @@
 {% block content %}
 
 <main class="painel_usuario">
-    <div class="container-fluid">
-        
+    <div class="painel_usuario_boas_vindas">
+        <div class="painel_usuario_titulo">
+            Olá, @<span>Usuário<!-- {{ usuario.nome }}--></span>!
+        </div>
+        <div class="painel_usuario_titulo cor_cinza">
+            Escolha o que você quer fazer:
+        </div>
+        <a href="" class="painel_usuario_opcoes">
+            <p>GERENCIAR POSTAGENS</p>
+            <p class="painel_descricao">Crie, edite e exclua postagens criadas por você!</p>
+        </a>
+        <a href="" class="painel_usuario_opcoes cor_verde">
+           <p>GERENCIAR PERFIL</p>
+           <p class="painel_descricao">Altere informações do seu perfil</p>
+        </a>
+        <a href="" class="painel_usuario_opcoes cor_branco">
+            <p>NAVEGAR PELO BLOG</p>
+            <p class="painel_descricao">Leia nossos artigos e publicações</p>
+        </a>
     </div>
 </main>
 

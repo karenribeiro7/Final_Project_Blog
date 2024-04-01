@@ -7,3 +7,6 @@ def postagem(request):
 
 def postagemdousuario(request):
     return render(request, 'galeria/postagemdousuario.html')
+
+def paineldousuario(request):
+    return render(request, 'galeria/paineldousuario.html')
