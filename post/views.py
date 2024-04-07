@@ -6,6 +6,7 @@ from django.views.decorators.cache import cache_page
 from post.forms import PostForm
 
 # Create your views here.
+<<<<<<< HEAD
 def Post(request):
     return render(request, 'postagem.html')
 
@@ -47,3 +48,13 @@ def excluir_postagem(request, pk):
 class PostagemViewSet(ModelViewSet):
     queryset = criarPostagem.objects.all()
     serializer_class = PostSerializer
+=======
+def postagem(request):
+    return render(request, 'galeria/postagem.html')
+
+def postagemdousuario(request):
+    return render(request, 'galeria/postagemdousuario.html')
+
+def paineldousuario(request):
+    return render(request, 'galeria/paineldousuario.html')
+>>>>>>> reestruturacao_frontEnd
