@@ -15,13 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-<<<<<<< HEAD
-from django.urls import path
-from post.views import criar_postagem
-=======
 from django.urls import path, include
-from post.views import postagem
->>>>>>> reestruturacao_frontEnd
 from inicio.views import inicio
 from cadastro.views import cadastrar, login
 from rest_framework.routers import SimpleRouter
@@ -35,15 +29,9 @@ router.register('cadastro', cadastroModelViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio),
-    # path('postagem/', postagem),
     path('cadastro/', cadastrar),
     path('login/', login),
-<<<<<<< HEAD
-    path('creatPost/', criar_postagem),
-    #path
-=======
     path('usuario/', include('post.urls')),     
->>>>>>> reestruturacao_frontEnd
 ]
 urlpatterns += router.urls
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

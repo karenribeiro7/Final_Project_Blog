@@ -135,22 +135,15 @@ MEDIA_URL = "/media/"
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-<<<<<<< HEAD
-    #os.path.join(BASE_DIR, 'setup/static')
-=======
     os.path.join(BASE_DIR, 'Project_Blog/static')
->>>>>>> reestruturacao_frontEnd
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-<<<<<<< HEAD
-=======
 # MEDIA
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
 
->>>>>>> reestruturacao_frontEnd
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
