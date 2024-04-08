@@ -28,7 +28,7 @@ def login(request):
                 login(request, user)
                 return redirect('paineldousuario.html') 
             else:
-                messages.error(request, 'Credenciais inválidas. Por favor, tente novamente.') 
+                messages.error(request, 'Usuaria inválida. Por favor, tente novamente.') 
         else:
             messages.error(request, 'Por favor, preencha todos os campos corretamente.')  
     else:
@@ -37,5 +37,5 @@ def login(request):
 
 def logout (request):
     django_logout(request) 
-    return redirect('galeria/inicio.html')
+    return redirect('/')
 

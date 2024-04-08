@@ -14,3 +14,7 @@ class Cadastro (models.Model):
         verbose_name = 'Formulário de cadastro'
         verbose_name_plural = 'Formulário de cadastros'
         ordering = ['-data']
+
+class Login(models.Model):
+    email = models.EmailField(max_length=50)
+    senha = models.CharField(max_length=50)        
