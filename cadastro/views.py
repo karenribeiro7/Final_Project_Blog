@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-def cadastro(request):
-    return render(request, 'cadastro.html')
+def cadastrar(request):
+    return render(request, 'galeria/cadastro.html')
 
 def login(request):
-    return render(request, 'login.html')
+    return render(request, 'galeria/login.html')
