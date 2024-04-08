@@ -9,7 +9,10 @@ from cadastro.serializers import CadastroSerializer, LoginSerializer
 
 def cadastrar(request):
     return render(request, 'galeria/cadastro.html')
+<<<<<<< HEAD
 
+=======
+>>>>>>> e1ead95411c00d29d6a8717d0b50d9ed9bcfcb6b
 
 def login(request):
     return render(request, 'galeria/login.html')

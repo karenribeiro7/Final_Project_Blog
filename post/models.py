@@ -11,3 +11,5 @@ class criarPostagem(models.Model):
     imagem_url = models.URLField(null=True, blank=True)
     categoria = models.ManyToManyField(Categoria)
     data_postagem = models.DateTimeField(auto_now_add=True)
+
+    
