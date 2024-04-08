@@ -20,7 +20,7 @@ from rest_framework.routers import SimpleRouter
 from cadastro.views import cadastroModelViewSet
 from django.conf import settings
 from django.conf.urls.static import static
-from cadastro.views import cadastrar, login, usuario
+from cadastro.views import cadastrar, login
 from inicio.views import inicio, sobre, contato
 from post.views import Post
 
@@ -32,7 +32,7 @@ urlpatterns = [
     path('', inicio), #ok
     path('cadastro/', cadastrar), # ???
     path('login/', login), #OK
-    path('usuario/', usuario),  #OK   
+    #path('usuario/', usuario),  #OK   
     path('sobre/', sobre), #OK
     path('contato/', contato), #OK
     path('post/', Post), #OK
