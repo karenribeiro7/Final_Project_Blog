@@ -1,0 +1,99 @@
+{% extends 'galeria/base.html' %}
+{% load static %}
+{% block title %}Postagem detalhada{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <!-- Postagem -->
+        <div class="row">
+            <div class="col-md-9">
+              <!-- título da postage, -->
+              <div class="container-fluid pt-5 ps-4">
+                <p class="h1 font-titulos">Este é o título da postagem</p>
+              </div>
+              <!-- informações da postagem -->
+              <div class="container-fluid ps-4 pb-3">
+                <small class="text-secondary">data e hora</small>
+              </div>
+              <!-- imagem da postagen -->
+              <div class="container-fluid ps-4">
+                <img src="{% static 'assets/banner4.png' %}" class="img-fluid" alt="...">
+              </div>
+              <!-- Texto da postagem -->
+              <div class="container-fluid pt-3 ps-4">
+                <p>Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p>Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+              <!-- Card de apresentação da autora -->
+              <div class="container-fluid pt-4 ps-4 pb-3">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="https://avatars.githubusercontent.com/u/72764345?v=4" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title font-titulos">Nome da autora</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <!-- Comentários -->
+        <div class="container-fluid ps-4 pt-4 pb-5">
+            <div class="row">
+                <div class="col-md-6 col-md-3">
+                    <p class="h3 font-titulos">Escreva um comentário</p>
+                    <div class="mb-3 mt-3">
+                        <!--
+                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> -->
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <button class="btn" type="button">Comentar como:</button>
+                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                          <option selected>Escolha</option>
+                          <option value="1">Anônimo</option>
+                          <option value="2">@usuario</option>
+                        </select>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+                        <button class="btn btn-primary" type="button">Comentar</button>
+                    </div>                     
+                </div>
+                <div class="col-md-6 col-md-3">
+                    <div class="container-fluid">
+                        <div class="container-fluid pt-2 pb-4">
+                            <span class="h4 font-titulos">Anônimo</span>
+                            <span class="text-secondary ps-4">07 de abril, 2024</span>
+                        </div>
+                        <div class="container-fluid">
+                            <p class="text-bg-light p-2">Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                        <div class="container-fluid pt-2 pb-4">
+                            <span class="h4 font-titulos">@usuario</span>
+                            <span class="text-secondary ps-4">07 de abril, 2024</span>
+                        </div>
+                        <div class="container-fluid">
+                            <p class="text-bg-light p-2">Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                        <div class="container-fluid">
+                            <nav aria-label="...">
+                                <ul class="pagination pagination-sm justify-content-end">
+                                  <li class="page-item active" aria-current="page">
+                                    <span class="page-link">1</span>
+                                  </li>
+                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                </ul>
+                              </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
