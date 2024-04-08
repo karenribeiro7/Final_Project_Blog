@@ -17,7 +17,7 @@ def cadastro(request):
     return render(request, 'galeria/cadastro.html', {'form': form})
 
 def login(request):
-   if request.method == 'POST':
+    if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data.get('email')
@@ -25,10 +25,15 @@ def login(request):
             user = authenticate(request, email=email, password=senha)
             if user is not None:
                 login(request, user)
-                return redirect('paineldousuario.html')
+                return redirect('paineldousuario.html') 
+            else:
+                messages.error(request, 'Credenciais inválidas. Por favor, tente novamente.') 
         else:
-            return HttpResponse("Usuária não cadastrada!")
-        
+            messages.error(request, 'Por favor, preencha todos os campos corretamente.')  
+    else:
+        form = LoginForm()
+    return render(request, 'galeria/login.html', {'form': form})
+
 def logout (request):
     logout(request)
     return redirect('galeria/inicio.html')
