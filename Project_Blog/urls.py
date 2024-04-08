@@ -8,7 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio),
     path('postagem/', postagem),
-   # path('cadastro/', cadastro),
-   # path('login/', login),
+    #path('cadastro/', cadastro),
+    #path('login/', login),
     path('auth/', include ('cadastro.urls'))
 ]
