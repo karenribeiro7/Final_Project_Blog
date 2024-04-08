@@ -4,6 +4,7 @@ from .forms import CadastroForm, LoginForm
 from django.contrib.auth import authenticate, login,logout
 from django.contrib import messages 
 from django.http import HttpResponse
+from django.contrib.auth import logout as django_logout 
 
 def cadastro(request):
     if request.method == 'POST':
@@ -35,6 +36,6 @@ def login(request):
     return render(request, 'galeria/login.html', {'form': form})
 
 def logout (request):
-    logout(request)
+    django_logout(request) 
     return redirect('galeria/inicio.html')
 
