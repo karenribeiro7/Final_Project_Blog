@@ -4,6 +4,7 @@ from cadastro.models import Cadastro, Login
 from cadastro.serializers import CadastroSerializer, LoginSerializer
 from cadastro.forms import CadastroForm
 from django.contrib import messages
+from django.contrib.auth import logout as django_logout
 
 
 # Create your views here.
@@ -34,8 +35,9 @@ def login(request):
             messages.error(request, 'Usuário não encontrado')
     return render(request, 'galeria/login.html')
 
-def usuario(request):
-    return render(request, 'galeria/paineldousuario.html')
+def logout(request):
+    django_logout(request)
+    return redirect('/')
 
 
 class cadastroModelViewSet(ModelViewSet):
