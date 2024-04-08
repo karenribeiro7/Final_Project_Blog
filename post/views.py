@@ -7,7 +7,7 @@ from post.forms import PostForm
 
 # Create your views here.
 def Post(request):
-    return render(request, 'postagem.html')
+    return render(request, 'galeria/postagem_detalhada.html')
 
 @cache_page(30)
 def criar_postagem(request):

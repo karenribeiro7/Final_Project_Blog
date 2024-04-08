@@ -8,11 +8,14 @@ from cadastro.serializers import CadastroSerializer, LoginSerializer
 
 
 def cadastrar(request):
-    return render(request, 'cadastro.html')
+    return render(request, 'galeria/cadastro.html')
 
 
 def login(request):
-    return render(request, 'login.html')
+    return render(request, 'galeria/login.html')
+
+def usuario(request):
+    return render(request, 'galeria/paineldousuario.html')
 
 
 class cadastroModelViewSet(ModelViewSet):
