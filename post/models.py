@@ -8,7 +8,7 @@ class Post(models.Model):
 
     titulo = models.CharField(max_length=150, null=False)
     slug = models.SlugField(unique=True, null=False)
-    descricao = models.TextField(max_length=255, null=False)
+    descricao = models.TextField(null=False)
     imagem = models.ImageField(upload_to='imagens/', blank=True)
     texto = models.TextField(null=False)
 
