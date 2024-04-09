@@ -1,8 +1,8 @@
 from rest_framework.serializers import ModelSerializer
-from post.models import criarPostagem
+from post.models import Post
 
 
 class PostSerializer(ModelSerializer):
     class Meta:
-        model = criarPostagem
+        model = Post
         fields = '__all__'

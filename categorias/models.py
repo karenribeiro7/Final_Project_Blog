@@ -4,4 +4,8 @@ from django.db import models
 
 
 class Categoria(models.Model):
-    nome = models.CharField(max_length=50, unique=True)
+    titulo = models.CharField(max_length=150, null=False)
+    slug = models.SlugField(max_length=150, null=False)
+
+    dt_criacao = models.DateTimeField(auto_now_add=True)
+    dt_atualiacao = models.DateTimeField(auto_now=True)

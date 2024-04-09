@@ -1,12 +1,12 @@
+from django import forms
 from django.contrib import admin
-from .models import criarPostagem
+from post.models import Post
 
-@admin.register(criarPostagem)
-
+@admin.register(Post)
 class criarPostagemAdmin(admin.ModelAdmin):
-    list_display = ('id', 'titulo', 'mensagem', 'imagem')
-    list_display_links = ('id', 'titulo')
-    search_fields = ('titulo', 'mensagem')
+    list_display = ['id', 'titulo', 'texto', 'imagem']
+    list_display_links = ['id', 'titulo']
+    search_fields = ['titulo', 'texto']
     list_per_page = 10
-    list_filter = ('titulo', 'mensagem')
-    list_editable = ('imagem',)
+    list_filter = ['titulo', 'texto']
+    list_editable = ['imagem']
