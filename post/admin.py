@@ -5,7 +5,7 @@ from post.models import Post
 @admin.register(Post)
 class criarPostagemAdmin(admin.ModelAdmin):
     list_display = ['id', 'titulo', 'dt_criacao', 'imagem']
-    search_fields = ['titulo', 'texto']
+    search_fields = ['titulo', 'categoria']
     list_per_page = 8
     list_editable = ['imagem']
     prepopulated_fields = {'slug': ('titulo',)}
