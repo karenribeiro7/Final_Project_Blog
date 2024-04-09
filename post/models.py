@@ -17,3 +17,24 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Comentario(models.Model):
+    STATUS =(
+        ('Lido', 'Lido'),
+        ('Não Lido', 'Não Lido'),
+    )
+
+    USUARIO=(
+        ('Anônimo', 'Anônimo'),
+        ('Logado', 'Logado'),
+    )
+
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    nome= models.CharField(max_length=150,choices=USUARIO , blank=False)
+    comentario = models.TextField()
+    dt_criacao = models.DateTimeField(auto_now_add=True)
+
+    status = models.CharField(max_length=10, choices=STATUS, default='Não Lido')
+
+    def __str__(self):
+        return self.nome

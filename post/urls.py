@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import Post
+from post.views import Post
 
 #urlpatterns = [
     #path('postagem/', Post, name='postagem'),

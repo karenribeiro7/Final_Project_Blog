@@ -3,7 +3,8 @@ from rest_framework.viewsets import ModelViewSet
 from .serializers import PostSerializer  
 from .models import Post as criarPost
 from django.views.decorators.cache import cache_page
-from post.forms import PostForm
+from post.forms import PostForm, ComentarioForm
+
 
 # Create your views here.
 def Post(request):
@@ -43,6 +44,20 @@ def excluir_postagem(request, pk):
     postagem.delete()
     return render(request, 'postagem.html')
 
+def addcomentario (request, pk):
+    postagem = criarPost.objects.get(pk=pk)
+    form = ComentarioForm(request.POST or None)
+    sucesso = False
+    if form.is_valid():
+        form.save()
+        sucesso = True
+    contexto = {
+        'postagem': postagem,
+        'form': form,
+        'sucesso': sucesso
+    }
+    return render(request, 'postagem_detalhada.html', contexto)
+   
 
 class PostagemViewSet(ModelViewSet):
     queryset = criarPost.objects.all()
