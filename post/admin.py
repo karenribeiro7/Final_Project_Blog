@@ -8,4 +8,4 @@ class criarPostagemAdmin(admin.ModelAdmin):
     search_fields = ['titulo', 'texto']
     list_per_page = 8
     list_editable = ['imagem']
-    prepopulated_fields = {'slug': ('titulo')}
+    prepopulated_fields = {'slug': ('titulo',)}
