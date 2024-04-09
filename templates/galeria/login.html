@@ -1,11 +1,32 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Pagina de login</h1>
-</body>
-</html>
+{% extends 'galeria/base.html' %}
+{% load static %}
+{% block title %}Fazer Login{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid mt-5 mb-5 p-5">
+    <div class="row justify-content-md-center">
+      <div class="col col-md-2 pt-3">
+        <img src="{% static 'assets\logo-cadastro.svg' %}" class="img-fluid" alt="logo caneca tech">
+        <p class='h3 font-titulos text-center p-3'>Bem-vinde!</p>
+      </div>  
+      <div class="col-md-auto ps-5">
+        <!-- para email -->
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com">
+        </div>        
+        <!-- para senha -->
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Senha</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <!-- Botão de envio -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-primary" type="button">Cadastrar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
