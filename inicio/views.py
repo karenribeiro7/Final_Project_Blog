@@ -4,7 +4,7 @@ from inicio.models import Inicio
 
 # Create your views here.
 def inicio(request):
-    categorias = Categoria.objects.all()
+    categorias = Categoria.objects.all() # duplicando categorias na home. testar um apend ou algo do tipo
     return render(request, 'galeria/inicio.html', {'categorias': categorias})
 
 def sobre(request):

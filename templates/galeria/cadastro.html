@@ -12,6 +12,9 @@
         <p class='h3 font-titulos text-center p-3'>Bem-vinde!</p>
       </div>
       <div class="col-md-auto ps-5">
+      <form action ="galeria\paineldousuario.html" method='POST' id="form">
+        {% csrf_token %}
+        
         <!-- para nome -->
         <div class="pb-2">
           <label for="validationCustom01" class="form-label">Nome</label>
@@ -33,9 +36,9 @@
         </div>
         <!-- Botão de envio -->
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button class="btn btn-primary" type="button">Cadastrar</button>
+          <button class="btn btn-primary" type="submit">Cadastrar</button>
         </div>
-
+      </form>
       </div>
     </div>
   </div>

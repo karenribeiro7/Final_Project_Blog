@@ -20,7 +20,7 @@ from rest_framework.routers import SimpleRouter
 from cadastro.views import cadastroModelViewSet
 from django.conf import settings
 from django.conf.urls.static import static
-from cadastro.views import cadastrar, login
+from cadastro.views import cadastrar, login, paineldousuario
 from inicio.views import inicio, sobre, contato
 from post.views import Post
 
@@ -36,6 +36,7 @@ urlpatterns = [
     path('sobre/', sobre), #OK
     path('contato/', contato), #OK
     path('post/', Post), #OK
+    path('paineldousuario/', paineldousuario), #OK
 ]
 urlpatterns += router.urls
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

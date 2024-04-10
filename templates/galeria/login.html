@@ -11,6 +11,9 @@
         <p class='h3 font-titulos text-center p-3'>Bem-vinde!</p>
       </div>  
       <div class="col-md-auto ps-5">
+      <form action = "paineldousuario/"  method='POST' id="form">
+          {% csrf_token %}
+          
         <!-- para email -->
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">E-mail</label>
@@ -23,9 +26,9 @@
         </div>
         <!-- Botão de envio -->
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button class="btn btn-primary" type="button">Cadastrar</button>
+          <button class="btn btn-primary" type="submit">Cadastrar</button>
         </div>
-
+      </form>
       </div>
     </div>
   </div>
