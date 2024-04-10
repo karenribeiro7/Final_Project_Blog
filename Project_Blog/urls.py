@@ -24,19 +24,20 @@ from cadastro.views import cadastrar, login, paineldousuario
 from inicio.views import inicio, sobre, contato
 from post.views import Post
 
+
 router = SimpleRouter(trailing_slash=False)
 router.register('cadastro', cadastroModelViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', inicio), #ok
-    path('cadastro/', cadastrar), # ???
-    path('login/', login), #OK
+    path('', inicio , name='inicio'), #ok
+    path('cadastro/', cadastrar, name='cadastrar'), # ???
+    path('login/', login , name='login'), #OK
     #path('usuario/', usuario),  #OK   
-    path('sobre/', sobre), #OK
-    path('contato/', contato), #OK
-    path('post/', Post), #OK
-    path('paineldousuario/', paineldousuario), #OK
+    path('sobre/', sobre, name='sobre'), #OK
+    path('contato/', contato, name='contato'), #OK
+    path('post/', Post, name='post'), #OK
+    path('paineldousuario/', paineldousuario, name='paineldousuario'), #OK
 ]
 urlpatterns += router.urls
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -2,7 +2,6 @@
 {% load static %}
 {% block title %}Cadastre-se{% endblock %}
 
-
 {% block content %}
 
   <div class="container-fluid mt-5 mb-5 p-5">
@@ -12,13 +11,13 @@
         <p class='h3 font-titulos text-center p-3'>Bem-vinde!</p>
       </div>
       <div class="col-md-auto ps-5">
-      <form action ="galeria\paineldousuario.html" method='POST' id="form">
+      <form action="{% url 'cadastrar' %}" method="post">
         {% csrf_token %}
         
         <!-- para nome -->
         <div class="pb-2">
           <label for="validationCustom01" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="validationCustom01" value="" required>
+          <input type="text" class="form-control" id="validationCustom01" name="nome" value="" required>
           <div class="valid-feedback">
             tudo certo!
           </div>
@@ -26,13 +25,13 @@
         <!-- para email -->
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">E-mail</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com">
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="name@example.com">
           <div id="emailHelp" class="form-text">Não compartilhamos seu email com ninguém.</div>
         </div>        
         <!-- para senha -->
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <input type="password" class="form-control" id="exampleInputPassword1" name="senha">
         </div>
         <!-- Botão de envio -->
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">

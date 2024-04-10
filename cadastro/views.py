@@ -6,19 +6,24 @@ from cadastro.forms import CadastroForm
 from django.contrib import messages
 from django.contrib.auth import logout as django_logout
 
-def cadastrar(request):
-    sucesso = False
-    form = CadastroForm(request.POST or None)
-    if form.is_valid():
-        sucesso = True
-        form.save()
-        return render(request, 'galeria/paineldousuario.html', {'form': form, 'sucesso': sucesso})
-    contexto={
-        'form': form,
-        'sucesso': sucesso
+def paineldousuario(request):
+    usuario = request.user
+    dados_usuario = {
+        'nome': usuario.username,
+        'email': usuario.email,
     }
-    return render(request, 'galeria/cadastro.html', contexto)   
-       
+    return render(request, 'galeria/paineldousuario.html', {'usuario': dados_usuario})
+
+def cadastrar(request):
+    if request.method == 'POST':
+        form = CadastroForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('paineldousuario') 
+    else:
+        form = CadastroForm()
+    return render(request, 'galeria/cadastro.html', {'form': form})
+    
 def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -32,9 +37,6 @@ def login(request):
         except Login.DoesNotExist:
             messages.error(request, 'Usuário não encontrado')
     return render(request, 'galeria/login.html')
-
-def paineldousuario(request):
-    return render(request, 'galeria/paineldousuario.html')
 
 def logout(request):
     django_logout(request)

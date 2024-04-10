@@ -4,8 +4,8 @@
 
 {% block login %}
 <div class="cabecalho_usuario">
-    <a href="#" class="font-titulos media-desktop">Olá, Usuário<!-- {{ usuario.nome }}-->!</a>
-    <a href="#" class="nav-link font-titulos media-mobile">OLÁ, USUÁRIO<!-- {{ usuario.nome }}-->! </a>
+    <a href="#" class="font-titulos media-desktop">Olá, Usuário{{ usuario.nome }}!</a>
+    <a href="#" class="nav-link font-titulos media-mobile">OLÁ, USUÁRIO{{ usuario.nome }}! </a>
     <div class="logo_usuario"></div>
 </div>
 {% endblock %}
@@ -15,7 +15,7 @@
 <main class="painel_usuario">
     <div class="painel_usuario_boas_vindas">
         <div class="painel_usuario_titulo">
-            Olá, @<span>Usuário<!-- {{ usuario.nome }}--></span>!
+            Olá, @<span>{{ usuario.nome }}</span>!
         </div>
         <div class="painel_usuario_titulo cor_cinza">
             Escolha o que você quer fazer:
