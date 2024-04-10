@@ -21,7 +21,7 @@ Caneca Tech é um blog pessoal desenvolvido como projeto final no Bootcamp Back-
 1. Clone o repositório:
 
    ```
-   git clone https://github.com/seu-usuario/caneca-tech.git
+   https://github.com/YaraDanieleUchoa/Final_Project_Blog
    ```
 
 2. Navegue até o diretório do projeto:
