@@ -5,21 +5,26 @@ from cadastro.serializers import CadastroSerializer, LoginSerializer
 from cadastro.forms import CadastroForm
 from django.contrib import messages
 from django.contrib.auth import logout as django_logout
+from django.views.decorators.cache import cache_page
 
 def paineldousuario(request):
     usuario = request.user
-    dados_usuario = {
-        'nome': usuario.username,
-        'email': usuario.email,
-    }
+    dados_usuario = {}
+    if usuario.is_authenticated:
+        dados_usuario = {
+            'nome': usuario.username,
+            'email': usuario.email,
+        }
     return render(request, 'galeria/paineldousuario.html', {'usuario': dados_usuario})
 
+@cache_page(30)
 def cadastrar(request):
     if request.method == 'POST':
         form = CadastroForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('paineldousuario') 
+            cadastro = form.save(commit=False)
+            cadastro.save()
+            return redirect('paineldousuario')
     else:
         form = CadastroForm()
     return render(request, 'galeria/cadastro.html', {'form': form})
