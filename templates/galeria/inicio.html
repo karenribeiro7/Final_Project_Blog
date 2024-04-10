@@ -7,7 +7,7 @@
 {% block content %}
   <main>
     <div class="container-fluid pt-5">
-      <!-- postagem de destaque
+      <!-- postagem de destaque PERMANECE?
       <div class="container-fluid p-4 mt-4">
         <div class="">
           <div class="card-body pb-3">
@@ -29,22 +29,20 @@
         <div class="p-3 mb-3">
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="{{ postagem.imagem }}" class="img-fluid rounded-start" alt="{{ postagem.descricao_imagem }}">
+              <img src="{{ post.imagem }}" class="img-fluid rounded-start" alt="{{ post.descricao_imagem }}"> <!-- esse aqui eu criei (camilla), inserir na models? ou excluir? -->
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title font-titulos h1">{{ postagem.titulo }}</h5>
+                <h5 class="card-title font-titulos h1">{{ post.titulo }}</h5>
                 <div class="mt-2 mb-2">
-                  <small class="text-bg-light font-titulos text-secondary">{{ postagem.dt_criacao }}</small>
-                  <small class="text-bg-light font-titulos text-primary ms-3">{{ postagem.categoria }}</small>
-                  <!-- usar apenas uma categoria?
-                  <small class="text-bg-light font-titulos text-primary ms-3">Tag 1</small>  -->
+                  <small class="text-bg-light font-titulos text-secondary">{{ post.dt_criacao }}</small>
+                  <small class="text-bg-light font-titulos text-primary ms-3">{{ post.categoria }}</small>
                 </div>
-                <p class="card-text fs-5 pt-3">{{ postagem.descricao }}</p>
+                <p class="card-text fs-5 pt-3">{{ post.descricao }}</p>
                 <div class="">
-                  <a href="{% url 'postagem_detalhada' id=1 %}"> <!-- conteúdo dentro da aspa ainda a definir -->
+                  <a href="{% url 'post' %}"> <!-- precisa da id do post -->
                     <button type="button" class="btn btn-outline-primary">Confira na íntegra</button>
-                  </a> <!-- Redirecionar para a página de postagem_detalhada -->
+                  </a> <!-- Redireciona para a página de postagem_detalhada (post) -->
                 </div>
               </div>
             </div>    
@@ -53,7 +51,7 @@
         <hr>
                             {% endfor %}
       </div>
-      <!-- Paginação -->
+      <!-- Paginação AINDA PRECISA RESOLVER ISSO -->
       <div class="container-fluid ms-2">
         <nav aria-label="Page navigation example">
           <ul class="pagination">
