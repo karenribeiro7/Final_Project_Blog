@@ -1,8 +1,7 @@
 ## Caneca Tech - Blog para Mulheres na Tecnologia
 
-<p align="center">
-  <img src="Screenshot_20240410_203109_Samsung Internet (1).jpg" alt="Caneca Tech">
-</p>
+center ![Screenshot_20240410_203109_Samsung Internet (1)](https://github.com/YaraDanieleUchoa/Final_Project_Blog/assets/162499262/1e859737-36eb-452d-bbf2-6726ab4506ef)
+
 
 Caneca Tech é um blog pessoal desenvolvido como projeto final no Bootcamp Back-end com Python e Django da WomakerCode. O objetivo deste projeto é fornecer um espaço para mulheres na área de tecnologia compartilharem seus conhecimentos e experiências.
 
