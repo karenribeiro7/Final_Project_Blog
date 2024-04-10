@@ -31,11 +31,11 @@ def login(request):
         try:
             usuario = Login.objects.get(email=email)
             if usuario.senha == senha:
-                return redirect('galeria/paineldousuario.html')
+                return redirect('paineldousuario')
             else:
                 messages.error(request, 'Senha incorreta')
         except Login.DoesNotExist:
-            messages.error(request, 'Usuário não encontrado')
+            messages.error(request, 'Usuária não encontrada')
     return render(request, 'galeria/login.html')
 
 def logout(request):

@@ -18,5 +18,5 @@ def listar_postagens(request):
     return render(request, 'galeria/lista_postagens.html', {'postagens': postagens})
 
 def postagem_detalhes(request, id):
-    postagem = get_object_or_404(Inicio, pk=postagem)
+    postagem = get_object_or_404(Inicio, pk=id)
     return render(request, 'galeria/postagem_detalhes.html', {'postagem': postagem})

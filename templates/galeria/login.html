@@ -11,7 +11,7 @@
         <p class='h3 font-titulos text-center p-3'>Bem-vinde!</p>
       </div>  
       <div class="col-md-auto ps-5">
-      <form action = "paineldousuario/"  method='POST' id="form">
+        <form action="{% url 'paineldousuario' %}" method="POST" id="form">
           {% csrf_token %}
           
         <!-- para email -->
