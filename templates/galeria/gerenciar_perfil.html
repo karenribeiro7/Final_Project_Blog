@@ -17,6 +17,7 @@
             <!-- formulário de atualização do perfil -->
             <div class="col-md-4">
                 <form action="" method="POST" id="form">
+                    {% csrf_token %}
                     <!-- Para nome -->
                     <div class="pb-2">
                         <label for="validationCustom01" class="form-label">Nome</label>
@@ -37,7 +38,7 @@
                       </div>
                       <!-- botão alterar -->
                       <div class="d-grid gap-2 d-md-flex justify-content-md-start pt-3">
-                        <button class="btn btn-primary" type="button">Alterar cadastro</button>
+                        <button class="btn btn-primary" type="submit">Alterar cadastro</button>
                       </div>
                 </form>
             </div>
