@@ -6,12 +6,12 @@ from usuario.forms import CadastroForm, LoginForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 #from django.contrib.auth.decorators import login_required
-#from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 #from django.contrib.auth.models import User
 
 def logout_user(request):
     logout(request)
-    return redirect('inicio')
+    return redirect('login')
 
 def paineldousuario(request):
     usuario = request.user
@@ -44,14 +44,14 @@ def cadastro_user(request):
 
 def fazer_login(request):
     if request.method == 'POST':
-        form = LoginForm(request.POST)
+        form = LoginForm(request, request.POST)
         if form.is_valid():
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
-            user = authenticate(request, email=email, password=password)
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('paineldousuario')  
+                return redirect('paineldousuario')  # Redireciona para a página paineldousuario
     else:
         form = LoginForm()
     return render(request, 'galeria/login.html', {'form': form})

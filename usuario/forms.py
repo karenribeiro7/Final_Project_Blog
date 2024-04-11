@@ -9,6 +9,12 @@ class CadastroForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
         
 class LoginForm(AuthenticationForm):
-    email = forms.EmailField(label='E-mail')
+    username = forms.CharField(label='username')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.pop('autofocus', None)
+        self.fields['username'].label = 'username'
     class Meta:
-        fields = ['email', 'password']
+        model = User
+        fields = ['username', 'password']

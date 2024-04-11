@@ -72,8 +72,11 @@
               <span class="font-titulos media-desktop">Olá, {{ usuario.nome }}!</span> 
               <span class="nav-link font-titulos media-mobile">OLÁ, {{ usuario.nome }}! </span> 
               <div class="logo_usuario"></div>       
-            </div>        
-            <button class="botao-entrar font-titulos" type="button">LOGOUT</button>
+            </div>
+            <form action="{% url 'login' %}" method="post" id="logout-form">
+              {% csrf_token %}        
+            <button class="botao-entrar font-titulos" type="submit">LOGOUT</button>
+          </form>
           {% endblock %}
           {% else %}
             <a href="{% url 'login' %}"><button class="botao-entrar font-titulos" type="button">LOGIN</button></a>
