@@ -55,7 +55,7 @@
             {% if user.is_authenticated %}
             {% else %}
             <li class="nav-item">
-              <a class="nav-link font-titulos" href="#">CADASTRE-SE</a>
+              <a class="nav-link font-titulos" href="{% url 'cadastro' %}">CADASTRE-SE</a>
             </li>
             {% endif %}
           </ul>
