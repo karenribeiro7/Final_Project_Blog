@@ -9,13 +9,13 @@
             <div class="col-md-9">
               <!-- título da postage, -->
               <div class="container-fluid pt-5 ps-4">
-                <p class="h1 font-titulos">{{ post.titulo }}</p>
-                <p class="h5 card-subtitle">{{ post.subtitulo }}</p>
+                <p class="h1 font-titulos">{{ postagem.titulo }}</p>
+                <p class="h5 card-subtitle">{{ postagem.subtitulo }}</p>
               </div>
               <!-- informações da postagem -->
               <div class="container-fluid ps-4 pb-3">
-                <small class="text-secondary">Data de criação: {{ post.dt_criacao }}</small>
-                <small class="text-bg-light font-titulos text-primary ms-3">{{ post.categoria }}</small>
+                <small class="text-secondary">Data de criação: {{ postagem.dt_criacao }}</small>
+                <small class="text-bg-light font-titulos text-primary ms-3">{{ postagem.categoria }}</small>
               </div>
               <!-- imagem da postagen -->
               <div class="container-fluid ps-4">
@@ -23,7 +23,7 @@
               </div>
               <!-- Texto da postagem -->
               <div class="container-fluid pt-3 ps-4">
-                <p>{{ post.texto }}</p>
+                <p>{{ postagem.texto }}</p>
               </div>
               <!-- Card de apresentação da autora -->
               <div class="container-fluid pt-4 ps-4 pb-3">
@@ -34,7 +34,7 @@
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
-                          <h5 class="card-title font-titulos">{{ post.usuario }}</h5>
+                          <h5 class="card-title font-titulos">{{ postagem.usuario }}</h5>
                           <p class="card-text">Usuário tem descrição? se tiver inserir aqui.</p>
                         </div>
                       </div>

@@ -1,10 +1,10 @@
 # meuapp/context_processors.py
 
-from inicio.models import Inicio
+from post.models import Post
 from categorias.models import Categoria
 
 def postagens_e_categorias(request):
-    postagens = Inicio.objects.all()
+    postagens = Post.objects.all()
     categorias = Categoria.objects.all()
     return {'postagens': postagens, 'categorias': categorias}
 

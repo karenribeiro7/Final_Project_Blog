@@ -24,21 +24,21 @@
       </div>
        -->
       <!-- Postagens -->
-      <div class="container-fluid ps-4">
-                      {% for postagem in postagens %}
+      <div class="container-fluid ps-4">        
         <div class="p-3 mb-3">
+          {% for postagem in postagens %}
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="{{ post.imagem }}" class="img-fluid rounded-start" alt="{{ post.descricao_imagem }}"> <!-- esse aqui eu criei (camilla), inserir na models? ou excluir? -->
+              <img src="{{ postagem.imagem.url }}" class="img-fluid" alt="{{ postagem.descricao_imagem }}"> <!-- esse aqui eu criei (camilla), inserir na models? ou excluir? -->
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title font-titulos h1">{{ post.titulo }}</h5>
+                <h5 class="card-title font-titulos h1">{{ postagem.titulo }}</h5>
                 <div class="mt-2 mb-2">
-                  <small class="text-bg-light font-titulos text-secondary">{{ post.dt_criacao }}</small>
-                  <small class="text-bg-light font-titulos text-primary ms-3">{{ post.categoria }}</small>
+                  <small class="text-bg-light font-titulos text-secondary">{{ postagem.dt_criacao }}</small>
+                  <small class="text-bg-light font-titulos text-primary ms-3">{{ postagem.categoria }}</small>
                 </div>
-                <p class="card-text fs-5 pt-3">{{ post.descricao }}</p>
+                <p class="card-text fs-5 pt-3">{{ postagem.descricao }}</p>
                 <div class="">
                   <a href="{% url 'post' %}"> <!-- precisa da id do post -->
                     <button type="button" class="btn btn-outline-primary">Confira na íntegra</button>
