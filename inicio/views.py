@@ -3,19 +3,17 @@ from categorias.models import Categoria
 from inicio.models import Inicio
 
 # Create your views here.
-def inicio(request):
-    categorias = Categoria.objects.all() # duplicando categorias na home. testar um apend ou algo do tipo
-    return render(request, 'galeria/inicio.html', {'categorias': categorias})
+def inicio(request):    
+    return render(request, 'galeria/inicio.html')
 
-def sobre(request):
+def sobre(request):    
     return render(request, 'galeria/sobre.html')
 
 def contato(request):
     return render(request, 'galeria/contato.html')
 
-def listar_postagens(request):
-    postagens = Inicio.objects.all()
-    return render(request, 'galeria/lista_postagens.html', {'postagens': postagens})
+def listar_postagens(request):    
+    return render(request, 'galeria/lista_postagens.html')
 
 def postagem_detalhes(request, id):
     postagem = get_object_or_404(Inicio, pk=id)

@@ -1,6 +1,6 @@
 {% extends 'galeria/base.html' %}
 {% load static %}
-{% block title %}Fazer Login{% endblock %}
+{% block title %}Login{% endblock %}
 
 
 {% block content %}
@@ -29,6 +29,7 @@
           <button class="btn btn-primary" type="submit">Cadastrar</button>
         </div>
       </form>
+      <a href="{% url 'cadastrar' %}">Ainda não é cadastrado?</a>
       </div>
     </div>
   </div>

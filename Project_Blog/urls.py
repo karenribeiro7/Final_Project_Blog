@@ -21,6 +21,7 @@ urlpatterns = [
     path('contato/', contato, name='contato'), #OK
     path('post/', Post, name='post'), #OK
     path('paineldousuario/', paineldousuario, name='paineldousuario'), #OK
+    path('usuario/', include('post.urls')), #Acrescentado para visualizar as páginas de criar e editar postagem
 ]
 urlpatterns += router.urls
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

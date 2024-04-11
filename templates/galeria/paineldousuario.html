@@ -2,21 +2,25 @@
 {% load static %}
 {% block title %}Painel do Usuário{% endblock %}
 
+{% if user.is_authenticated %}
 {% block login %}
 <div class="cabecalho_usuario">
-    <a href="#" class="font-titulos media-desktop">Olá, Usuário{{ usuario.nome }}!</a>
-    <a href="#" class="nav-link font-titulos media-mobile">OLÁ, USUÁRIO{{ usuario.nome }}! </a>
+    <span class="font-titulos media-desktop">Olá, {{ usuario.nome }}!</span>
+    <span class="nav-link font-titulos media-mobile">OLÁ, {{ usuario.nome }}! </span>
     <div class="logo_usuario"></div>
 </div>
 {% endblock %}
+{% endif %}
 
 {% block content %}
 
 <main class="painel_usuario">
     <div class="painel_usuario_boas_vindas">
+        {% if usuario.is_authenticated %}        
         <div class="painel_usuario_titulo">
             Olá, @<span>{{ usuario.nome }}</span>!
         </div>
+        {% endif %}
         <div class="painel_usuario_titulo cor_cinza">
             Escolha o que você quer fazer:
         </div>
@@ -28,7 +32,7 @@
            <p>GERENCIAR PERFIL</p>
            <p class="painel_descricao">Altere informações do seu perfil</p>
         </a>
-        <a href="/" class="painel_usuario_opcoes cor_branco">
+        <a href="{% url 'inicio' %}" class="painel_usuario_opcoes cor_branco">
             <p>NAVEGAR PELO BLOG</p>
             <p class="painel_descricao">Leia nossos artigos e publicações</p>
         </a>

@@ -10,10 +10,9 @@
             </label>
             <!-- Inserir conexão com bd -->
             <ul>
-                <li><a href="#" class="font-titulos">Categoria 1</a></li>
-                <li><a href="#" class="font-titulos">Categoria 2</a></li>
-                <li><a href="#" class="font-titulos">Categoria 3</a></li>
-                <li><a href="#" class="font-titulos">Categoria 4</a></li>
+                {% for categoria in categorias %}
+                <li><a href="#" class="font-titulos">{{ categoria.titulo }}</a></li>
+                {% endfor %}
             </ul>
         </div>
         <div class="links-rodape">
@@ -44,13 +43,13 @@
                 <i class="bi bi-chevron-down"></i>
             </label>
             <ul>
-                <li><a href="#" class="font-titulos">Login</a></li>
-                <li><a href="#" class="font-titulos">Cadastro</a></li>
+                <li><a href="{% url 'login' %}" class="font-titulos">Login</a></li>
+                <li><a href="{% url 'cadastrar' %}" class="font-titulos">Cadastro</a></li>
             </ul>
         </div>
         <div class="links-rodape">
             <input type="checkbox" id="toggle">
-            <label for="toggle"><a href="#" class="font-titulos">SOBRE</a></label>
+            <label for="toggle"><a href="{% url 'sobre' %}" class="font-titulos">SOBRE</a></label>
         </div>
         <!-- <div class="links-rodape">
             <input type="checkbox" id="toggle" style="display: none;">

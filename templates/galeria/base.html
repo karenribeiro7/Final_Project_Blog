@@ -21,6 +21,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+  .full-width-input {
+      width: 100%;
+  }
+</style>
 
 </head>
 
@@ -28,7 +33,7 @@
   <header>
     <nav class="navbar navbar-expand-lg pt-5 ps-4 pe-4">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{% url 'inicio' %}">
           <img src="{% static '\assets\logo.png' %}" class="img-fluid" alt="Caneca Tech">
         </a>
         <!-- menu hamburguer -->
@@ -39,10 +44,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link font-titulos" aria-current="page" href="#">HOME</a>
+              <a class="nav-link font-titulos" aria-current="page" href="{% url 'inicio' %}">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link font-titulos" href="#">SOBRE</a>
+              <a class="nav-link font-titulos" href="{% url 'sobre' %}">SOBRE</a>
             </li>
             <li class="nav-item">
               <a class="nav-link font-titulos" href="#">CONTATO</a>
@@ -62,22 +67,24 @@
                 <i class="bi bi-search"></i>
               </button>
             </div>
-          </form>
-          {% block login %}<button class="botao-entrar font-titulos" type="button">LOGIN</button> {% endblock %}
-          
+          </form>         
+                    
           <!-- IMPLEMENTAR CÓDIGO ABAIXO APÓS BD ASSOCIADO -->
 
-          <!-- {% if user.is_authenticated %}
+          {% if user.is_authenticated %}
+          {% block login %}
             <div class="cabecalho_usuario">
-              <a href="#" class="font-titulos media-desktop">Olá, {{ usuario.nome }}!</a> 
-              <a href="#" class="nav-link font-titulos media-mobile">OLÁ, {{ usuario.nome }}! </a> 
+              <span class="font-titulos media-desktop">Olá, {{ usuario.nome }}!</span> 
+              <span class="nav-link font-titulos media-mobile">OLÁ, {{ usuario.nome }}! </span> 
               <div class="logo_usuario"></div>       
             </div>        
             <button class="botao-entrar font-titulos" type="button">LOGOUT</button>
+          {% endblock %}
           {% else %}
-            <button class="botao-entrar font-titulos" type="button">LOGIN</button>
-          {% endif %} -->
+            <a href="{% url 'login' %}"><button class="botao-entrar font-titulos" type="button">LOGIN</button></a>
+          {% endif %} 
 
+          
         </div>
       </div>
     </nav>

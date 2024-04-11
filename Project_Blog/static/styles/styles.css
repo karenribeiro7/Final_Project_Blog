@@ -3,6 +3,10 @@ body {
   padding: 0;
 }
 
+::placeholder {
+  font-family: "Share Tech Mono", monospace; /* Define a fonte para o navegador Chrome e Safari */
+}
+
 .font-titulos {
   font-family: "Share Tech Mono", monospace;
 }
@@ -40,6 +44,7 @@ input[type="checkbox"] {
   background-color: #7c6afa;
   border: none;
   padding: 6px 24px;
+  margin-left: 20px;
 }
 
 input[type="search"]::placeholder {
@@ -92,7 +97,7 @@ input[type="search"]::placeholder {
 
 @media (max-width: 992px) {
   .botao-entrar {
-    margin-top: 20px;
+    margin-top: 20px;    
   }
 }
 
@@ -102,6 +107,7 @@ input[type="search"]::placeholder {
   display: inline-flex;
   place-items: center;
   place-content: center;
+  
 }
 
 .media-mobile {
@@ -570,8 +576,7 @@ input[type="checkbox"]:checked+.checkbox_post {
   font-family: "Share Tech Mono", monospace;
   font-size: 30px;
   color: #000;
-  text-align: center;
-  /* margin-bottom: 30px; */
+  text-align: center;  
 }
 
 .painel_usuario_titulo span {
@@ -639,4 +644,108 @@ input[type="checkbox"]:checked+.checkbox_post {
     font-size: 16px;
   }
   
+}
+
+/* FORMULÁRIO DE CRIAÇÃO DE POST */
+
+.formulario_criacao_post {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0px 200px 80px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 1000px;
+}
+
+.full-width-input {
+  width: 100%;
+}
+
+.barra_criacao_post {
+  background-color: transparent;
+  border: 0.5px solid #7c6afa;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border-radius: 0;
+  /* width: 1000px;   */
+}
+
+.barra_criacao_post:focus {
+  border-color: rgba(124, 106, 250, 1);
+  box-shadow: 0 0 0 0.25rem rgba(124, 106, 250, 0.25);
+}
+
+.label_criacao_post {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 23px;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.btn-outline-success-alteracao {
+  background-color: #7c6afa;
+  border-color: #7c6afa;
+  color: #fff;
+  border-radius: 0;
+}
+
+.btn-outline-success-alteracao:hover {
+  color: rgba(239, 239, 239, 1);
+  background-color: #7c6afa;
+  border-color: #7c6afa;
+}
+
+.box_tag_post {
+  background-color: transparent;   
+  border-radius: 0;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 100%;
+  gap: 10px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+  grid-gap: 30px;
+  width: 100%;
+}
+
+.grid-item {
+  justify-items: flex-start;
+  align-items: start;
+}
+
+.left-column {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr); /* Três linhas na primeira coluna */
+  
+}
+
+.right-column {
+  position: relative;
+  align-self: stretch; /* Faz a linha única na segunda coluna ocupar a mesma altura que as três linhas da primeira coluna */
+  align-items: center;
+  justify-items: center;
+}
+
+.right-column::before {
+  content: '';
+  position: absolute;
+  top: 15px; /* Ajuste a posição para a borda interna */
+  left: 10px; /* Ajuste a posição para a borda interna */
+  right: 0px; /* Ajuste a posição para a borda interna */
+  bottom: 25px; /* Ajuste a posição para a borda interna */
+  border: 1px solid #7c6afa
+}
+
+.grid-item-content { 
+  padding: 10px 0 0 0;
+  width: 100%;
+}
+
+.corpo_post {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  height: 500px;
 }

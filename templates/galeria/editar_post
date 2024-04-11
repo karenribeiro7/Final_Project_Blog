@@ -14,9 +14,9 @@
 
 <main id="suas_postagens">
     <div class="titulo_suas_postagens">
-        <span class="font-titulos-destaque">Criar Post</span>
+        <span class="font-titulos-destaque">Editar Post</span>
         <button class="botao-criar-post">
-            <i class="bi bi-plus-lg"></i> POSTAR</button>
+            <i class="bi bi-plus-lg"></i> ATUALIZAR</button>
     </div>
     <p class="retornar_link">
         << Voltar para Painel do usuário</p>
