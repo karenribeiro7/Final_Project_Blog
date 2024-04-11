@@ -4,42 +4,23 @@
 
 {% block content %}
 
-  <div class="container-fluid mt-5 mb-5 p-5">
+<div class="container-fluid mt-5 mb-5 p-5">
     <div class="row justify-content-md-center">
-      <div class="col col-md-2 pt-5">
-        <img src="{% static 'assets\logo-cadastro.svg' %}" class="img-fluid" alt="logo caneca tech">
-        <p class='h3 font-titulos text-center p-3'>Bem-vinde!</p>
-      </div>
-      <div class="col-md-auto ps-5">
-      <form action="{% url 'cadastrar' %}" method="post">
-        {% csrf_token %}
-        
-        <!-- para nome -->
-        <div class="pb-2">
-          <label for="validationCustom01" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="validationCustom01" name="nome" value="" required>
-          <div class="valid-feedback">
-            tudo certo!
-          </div>
-        </div>    
-        <!-- para email -->
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">E-mail</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="name@example.com">
-          <div id="emailHelp" class="form-text">Não compartilhamos seu email com ninguém.</div>
-        </div>        
-        <!-- para senha -->
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" name="senha">
+        <div class="col col-md-2 pt-5">
+            <img src="{% static 'assets\logo-cadastro.svg' %}" class="img-fluid" alt="logo caneca tech">
+            <p class='h3 font-titulos text-center p-3'>Bem-vinde!</p>
         </div>
-        <!-- Botão de envio -->
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button class="btn btn-primary" type="submit">Cadastrar</button>
+        <div class="col-md-auto ps-5">
+            <form action="{% url 'cadastro' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <!-- Botão de envio -->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-primary" type="submit">Cadastrar</button>
+                </div>
+            </form>
         </div>
-      </form>
-      </div>
     </div>
-  </div>
+</div>
 
 {% endblock %}
