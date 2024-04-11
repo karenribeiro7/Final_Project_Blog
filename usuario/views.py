@@ -1,3 +1,4 @@
+from venv import logger
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib.auth import logout
@@ -14,13 +15,14 @@ def logout_user(request):
 
 def paineldousuario(request):
     usuario = request.user
-    dados_usuario = {}
+    dados_usuario ={}
     if usuario.is_authenticated:
         dados_usuario = {
-            'nome': usuario.username,
+           'id': usuario.id,
+            'username': usuario.username,
             'email': usuario.email,
         }
-    return render(request, 'galeria/paineldousuario.html', {'usuario': dados_usuario})
+    return render(request, 'galeria/paineldousuario.html', {'usuario': dados_usuario} )
 
 def cadastro_user(request):
     if request.method == 'POST':
@@ -32,14 +34,17 @@ def cadastro_user(request):
             user = authenticate(request, username=email, password=password)
             if user is not None:
                 login(request, user)
+                logger.info(f'Usuário (a) {user.username} autenticado com sucesso após o cadastro')
                 return redirect('paineldousuario')
+            else:
+                logger.error('Erro !!! Usuário não autenticado após o cadastro')
     else:
         form = CadastroForm()
     return render(request, 'galeria/cadastro.html', {'form': form})
 
 def fazer_login(request):
     if request.method == 'POST':
-        form = LoginForm(request, request.POST)
+        form = LoginForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
