@@ -5,8 +5,8 @@
 {% if user.is_authenticated %}
 {% block login %}
 <div class="cabecalho_usuario">
-    <span class="font-titulos media-desktop">Olá, {{ usuario.nome }}!</span>
-    <span class="nav-link font-titulos media-mobile">OLÁ, {{ usuario.nome }}! </span>
+    <span class="font-titulos media-desktop">Olá, {{ cadastro.nome }}!</span>
+    <span class="nav-link font-titulos media-mobile">OLÁ, {{ cadastro.nome }}! </span>
     <div class="logo_usuario"></div>
 </div>
 {% endblock %}
@@ -18,7 +18,7 @@
     <div class="painel_usuario_boas_vindas">
         {% if usuario.is_authenticated %}        
         <div class="painel_usuario_titulo">
-            Olá, @<span>{{ usuario.nome }}</span>!
+            Olá, @<span>{{ Cadastro.nome }}</span>!
         </div>
         {% endif %}
         <div class="painel_usuario_titulo cor_cinza">
@@ -28,7 +28,7 @@
             <p>GERENCIAR POSTAGENS</p>
             <p class="painel_descricao">Crie, edite e exclua postagens criadas por você!</p>
         </a>
-        <a href="galeria/gerenciar_perfil.html" class="painel_usuario_opcoes cor_verde">
+        <a href="{% url 'gerenciar_perfil' %}" class="painel_usuario_opcoes cor_verde">
            <p>GERENCIAR PERFIL</p>
            <p class="painel_descricao">Altere informações do seu perfil</p>
         </a>

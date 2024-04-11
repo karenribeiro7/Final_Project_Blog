@@ -4,7 +4,7 @@ from rest_framework.routers import SimpleRouter
 from cadastro.views import cadastroModelViewSet
 from django.conf import settings
 from django.conf.urls.static import static
-from cadastro.views import cadastrar, login, paineldousuario
+from cadastro.views import cadastrar, login, paineldousuario, gerenciar_perfil
 from inicio.views import inicio, sobre, contato
 from post.views import Post
 
@@ -22,6 +22,7 @@ urlpatterns = [
     path('post/', Post, name='post'), #OK
     path('paineldousuario/', paineldousuario, name='paineldousuario'), #OK
     path('usuario/', include('post.urls')), #Acrescentado para visualizar as páginas de criar e editar postagem
+    path('gerenciar_perfil/', gerenciar_perfil, name='gerenciar_perfil'), #OK
 ]
 urlpatterns += router.urls
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

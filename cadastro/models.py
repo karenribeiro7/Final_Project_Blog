@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Cadastro(models.Model):
     nome = models.CharField(max_length=50)
     email = models.EmailField(max_length=50, unique=True)
@@ -18,4 +19,3 @@ class Cadastro(models.Model):
 class Login(models.Model):
     email = models.EmailField(max_length=50)
     senha = models.CharField(max_length=50)
-   
