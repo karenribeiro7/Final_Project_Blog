@@ -6,6 +6,7 @@ from .models import Post as criarPost
 from post.forms import PostForm, ComentarioForm
 from categorias.models import Categoria
 from inicio.views import inicio
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -24,37 +25,21 @@ def gerenciar_postagem(request):
     return render(request, 'galeria/postagemdousuario.html', contexto)
 
 
-
+@login_required
 def editar_postagem(request, pk):
-    template_name = 'galeria/editar_postagem.html'
-    categorias = Categoria.objects.all()
     postagem = criarPost.objects.get(pk=pk)
-    form = PostForm(instance=postagem)
+    form = PostForm(request.POST or None, instance=postagem)
     sucesso = False
-    if request.method == 'POST':
-        form = PostForm(request.FILES or None, request.POST or None, instance=postagem)
-        print(postagem.pk)
-        
-        if form.is_valid():
-            postagem = form.save(False)
-            postagem.usuario = request.user
-            postagem.slug = form.cleaned_data['postagem.titulo'].replace(' ', '-').lower()
-            postagem = criarPost.objects.create(usuario=postagem.usuario, slug=postagem.slug, titulo=form.cleaned_data['titulo'], descricao=form.cleaned_data['descricao'], texto=form.cleaned_data['texto'], imagem=form.cleaned_data['imagem'], categoria=form.cleaned_data['categoria'])
-            postagem.save()
-            sucesso = True
-            return redirect('postagem_detalhada', pk=postagem.pk)
-        else:
-            print(form.errors)
-            raise Http404
-    else:
-            form = PostForm(instance=postagem)
+    if form.is_valid():
+        form.save()
+        sucesso = True
+        return redirect('postagem_detalhada', pk=postagem.pk)
     contexto = {
         'postagem': postagem,
         'form': form,
-        'sucesso': sucesso,
-        'categorias': categorias
+        'sucesso': sucesso
     }
-    return render(request, template_name, contexto)
+    return render(request, 'galeria/editar_postagem.html', contexto)
  
  
 def criar_postagem(request):
