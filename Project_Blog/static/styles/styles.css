@@ -462,9 +462,14 @@ input[type="checkbox"]:checked+.checkbox_post {
   align-content: flex-start;
 }
 
-.conteudo_post:nth-child(3) {
-  flex-grow: 1;
+.conteudo_post:nth-child(2) {
+  flex-grow: 0;
+  flex-shrink: 1;
   align-self: start;
+}
+
+.conteudo_principal p{
+  width: 500px;
 }
 
 .data_tag {
@@ -759,6 +764,12 @@ input[type="checkbox"]:checked+.checkbox_post {
   height: 500px;
 }
 
+.corpo_post_descricao {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  height: 100px;
+}
+
 @media screen and (max-width: 576px) {
   .formulario_criacao_post {
     margin: 30px 20px 50px 20px;
@@ -788,6 +799,11 @@ input[type="checkbox"]:checked+.checkbox_post {
   .corpo_post {
     font-size: 14px;
     height: 300px;
+  }
+
+  .corpo_post_descricao {
+    font-size: 14px;
+    height: 50px;
   }
   
 }

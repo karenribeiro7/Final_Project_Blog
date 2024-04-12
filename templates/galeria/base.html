@@ -48,6 +48,9 @@
               <a class="nav-link font-titulos" href="{% url 'contato' %}">CONTATO</a>
             </li>
             {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link font-titulos" href="{% url 'paineldousuario' %}">PAINEL DO USUÁRIO</a>
+            </li>
             {% else %}
             <li class="nav-item">
               <a class="nav-link font-titulos" href="{% url 'cadastro' %}">CADASTRE-SE</a>

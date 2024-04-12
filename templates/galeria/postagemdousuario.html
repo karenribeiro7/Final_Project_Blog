@@ -4,8 +4,8 @@
 
 {% block login %}
 <div class="cabecalho_usuario">
-    <a href="#" class="font-titulos media-desktop">Olá,  {{ usuario.nome }}!</a>
-    <a href="#" class="nav-link font-titulos media-mobile">OLÁ, {{ usuario.nome }}! </a>
+    <a href="{% url 'paineldousuario' %}" class="font-titulos media-desktop">Olá,  {{ usuario.nome }}!</a>
+    <a href="{% url 'paineldousuario' %}" class="nav-link font-titulos media-mobile">OLÁ, {{ usuario.nome }}! </a>
     <div class="logo_usuario"></div>
 </div>
 {% endblock %}
@@ -32,6 +32,7 @@
             <p>Selecionar Todos</p>  -->
         </div>
         <div>
+            <!--
             <form class="d-flex" role="search">
                 <div class="input-group">
                     <input class="form-control barra_pesquisa font-titulos" type="search" placeholder="Buscar postagem"
@@ -41,6 +42,7 @@
                     </button>
                 </div>
             </form>
+            -->
         </div>
     </div>
 
@@ -59,9 +61,11 @@
                     <p class="data_post">{{ postagem.dt_criacao|date:"d F, Y" }}</p>
                     <!-- Exibir tags aqui, se houver -->
                 </div>
-                <p class="font-titulos-destaque2">{{ postagem.titulo }}</p>
-                <p class="parcial_post">{{ postagem.descricao }}</p>
-                <a href="{% url 'postagem_detalhada' pk=postagem.pk %}" class="post_completo_link">VER POSTAGEM >></a>
+                <div class="conteudo_principal">
+                    <p class="font-titulos-destaque2">{{ postagem.titulo }}</p>
+                    <p class="parcial_post">{{ postagem.descricao }}</p>
+                    <a href="{% url 'postagem_detalhada' pk=postagem.pk %}" class="post_completo_link">VER POSTAGEM >></a>
+                </div>
             </div>
             <div class="edicao_post">
                 <button class="btn-editar" type="button">
