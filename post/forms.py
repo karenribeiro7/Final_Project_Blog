@@ -1,9 +1,9 @@
 from django import forms
 from .models import Post, Comentario
 
-class PostForm(forms.ModelForm):
+class PostForm(forms.ModelForm):        
     class Meta:
-        model = Post
+        model = Post        
         fields = '__all__'
         list_display = ('id', 'autor', 'texto', 'imagem')
         list_display_links = ('id', 'titulo')
