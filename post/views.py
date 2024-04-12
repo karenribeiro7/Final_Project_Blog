@@ -94,3 +94,11 @@ def listar_postagens(request):
 class PostagemViewSet(ModelViewSet):
     queryset = criarPost.objects.all()
     serializer_class = PostSerializer
+
+def buscar_posts(request):
+    if request.method == "POST":
+        searched = request.POST['searched'] # tentar tbm com () se der errado
+        postagens = criarPost.objects.filter(titulo__contains=searched) # se "icontains" der errado usar só "contains", icontains serve para não fazer distinção entre maiúsculo/minúsculo
+        return render(request, 'galeria/resultado_busca.html', {'searched': searched, 'postagens': postagens})
+    else: 
+        return render(request, 'galeria/resultado_busca.html')

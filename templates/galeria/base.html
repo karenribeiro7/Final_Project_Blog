@@ -54,10 +54,13 @@
             </li>
             {% endif %}
           </ul>
-          <form class="d-flex" role="search">
+
+          <!-- barra de busca -->
+          <form class="d-flex" role="search" method="POST" action="{% url 'buscar_posts' %}">
+            {% csrf_token %}
             <div class="input-group">
               <input class="form-control barra_pesquisa font-titulos" type="search" placeholder="Buscar"
-                aria-label="Search">
+                aria-label="Search" name="searched">
               <button class="btn btn-outline-success-ctech font-titulos me-4" type="butt">                
                 <i class="bi bi-search"></i>
               </button>
