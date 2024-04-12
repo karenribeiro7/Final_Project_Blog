@@ -14,9 +14,6 @@ def contato(request):
     squads = Squad.objects.all()
     return render(request, 'galeria/contato.html', {'squads': squads})
 
-def listar_postagens(request):    
-    return render(request, 'galeria/lista_postagens.html')
-
 def postagem_detalhes(request, id):
     postagem = get_object_or_404(Post, pk=id)
     return render(request, 'galeria/postagem_detalhada.html', {'postagem': postagem})

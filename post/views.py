@@ -7,11 +7,21 @@ from post.forms import PostForm, ComentarioForm
 from categorias.models import Categoria
 
 # Create your views here.
-def Post(request):
-    return render(request, 'galeria/postagem_detalhada.html')
+def postagem_detalhada(request, pk):
+    postagem = criarPost.objects.get(pk=pk)
+    contexto = {
+        'postagem': postagem
+    }
+    return render(request, 'galeria/postagem_detalhada.html', contexto)
 
-@cache_page(30)
-def criar_postagem(request):    
+def gerenciar_postagem(request):
+    postagem = criarPost.objects.all()
+    contexto = {
+        'postagem': postagem
+    }
+    return render(request, 'galeria/postagemdousuario.html', contexto)
+
+def criar_postagem(request):
     categorias = Categoria.objects.all()
     postagem = criarPost.objects.all()
     form = PostForm(request.POST or None)
@@ -23,7 +33,7 @@ def criar_postagem(request):
         'postagem': postagem,
         'form': form,
         'sucesso': sucesso,
-        'categorias': categorias        
+        'categorias': categorias
     }
     return render(request, 'galeria/criar_postagem.html', contexto)
 
@@ -59,6 +69,9 @@ def addcomentario (request, pk):
         'sucesso': sucesso
     }
     return render(request, 'galeria/postagem_detalhada.html', contexto)
+
+def listar_postagens(request):    
+    return render(request, 'galeria/lista_postagens.html')
    
 
 class PostagemViewSet(ModelViewSet):

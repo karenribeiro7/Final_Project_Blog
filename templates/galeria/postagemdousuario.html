@@ -4,8 +4,8 @@
 
 {% block login %}
 <div class="cabecalho_usuario">
-    <a href="#" class="font-titulos media-desktop">Olá, Usuário<!-- {{ usuario.nome }}-->!</a>
-    <a href="#" class="nav-link font-titulos media-mobile">OLÁ, USUÁRIO<!-- {{ usuario.nome }}-->! </a>
+    <a href="#" class="font-titulos media-desktop">Olá,  {{ usuario.nome }}!</a>
+    <a href="#" class="nav-link font-titulos media-mobile">OLÁ, {{ usuario.nome }}! </a>
     <div class="logo_usuario"></div>
 </div>
 {% endblock %}
@@ -14,9 +14,10 @@
 
 <main id="suas_postagens">
     <div class="titulo_suas_postagens">
-        <span class="font-titulos-destaque">Suas Postagens</span>        
+        <span class="font-titulos-destaque">Suas Postagens</span>
+        <a href="{% url 'criar_postagem' %}">       
         <button class="botao-criar-post">
-            <i class="bi bi-plus-lg"></i> Criar Novo Post</button>
+            <i class="bi bi-plus-lg"></i> Criar Novo Post</button> </a> 
     </div>
     <p class="retornar_link"><< Voltar para Painel do usuário</p>
 
