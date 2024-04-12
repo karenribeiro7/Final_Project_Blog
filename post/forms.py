@@ -1,7 +1,7 @@
 from django import forms
 from .models import Post, Comentario
 
-class PostForm(forms.ModelForm):
+class PostForm(forms.ModelForm):        
     class Meta:
         model = Post
         fields = ['categoria',  'titulo', 'descricao', 'imagem', 'texto']
