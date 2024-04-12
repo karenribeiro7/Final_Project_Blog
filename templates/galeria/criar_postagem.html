@@ -15,9 +15,7 @@
 <main id="suas_postagens">
     <div class="titulo_suas_postagens">
         <span class="font-titulos-destaque">Criar Post</span>
-        <a href="{% url 'criar_postagem' %}">
-        <button class="botao-criar-post">
-            <i class="bi bi-plus-lg"></i> POSTAR</button></a>
+       
     </div>
     <p class="retornar_link">
         << Voltar para Painel do usuário</p>
@@ -39,14 +37,15 @@
                         <div class="grid-item-content">
 
                             <div class="input-group" style="font-family: 'Share Tech Mono', monospace;">
+                               
                                 <select class="form-select barra_criacao_post" id="tags_postagem_usuario"
                                     aria-label="Example select with button addon">
                                     <option selected>Escolher tags </option>
-                                    {% for categoria in categorias %}
-                                    <option value="{{ categoria.pk }}">{{ categoria.nome }}</option>
+                                    {% for categoria in categorias %}                          
+                                    <option value="{{ categoria.id }}">{{ categoria.titulo }}</option>
                                     {% endfor %}
                                 </select>
-                                <button class="btn btn-outline-success-alteracao" type="button">INSERIR</button>
+                               <!--<button class="btn btn-outline-success-alteracao" type="button">INSERIR</button>--> 
                             </div>
 
                         </div>
@@ -58,7 +57,7 @@
 
                     </div>
 
-                    <div class="grid-item right-column">
+                   <!-- <div class="grid-item right-column">
                         <div class="mb-3 box_tag_post">
                             <div>
                                 <span class="tag_post">tag1</span>
@@ -73,7 +72,7 @@
                                 <i class="bi bi-x-square" style="color: rgba(244, 82, 82, 1);"></i>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 
                 <div class="mb-3 full-width-input">
@@ -89,6 +88,13 @@
                     <label for="corpo_postagem_usuario" class="label_criacao_post">CORPO DA POSTAGEM</label>
                     <textarea class="form-control barra_criacao_post corpo_post" id="corpo_postagem_usuario"></textarea>
                 </div>
+                
+            <div>
+                <a href="{% url 'criar_postagem' %}">
+                    <button class="botao-criar-post">
+                        <i class="bi bi-plus-lg"></i> POSTAR</button>
+                </a>
+            </div>
 
             </form>
 </main>

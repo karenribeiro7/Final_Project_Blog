@@ -21,22 +21,21 @@ def gerenciar_postagem(request):
     }
     return render(request, 'galeria/postagemdousuario.html', contexto)
 
-@cache_page(30)
 def criar_postagem(request):
-  categorias = Categoria.objects.all()
-  form = PostForm(request.POST or None)
-  sucesso = False
-  if form.is_valid():
-    nova_postagem = form.save(commit=False)  # Create but don't save yet
-    nova_postagem.usuario = request.user  # Assuming you have a logged-in user
-    nova_postagem.save()  # Now save the complete Post object
-    sucesso = True
-  contexto = {
-      'form': form,
-      'sucesso': sucesso,
-      'categorias': categorias
-  }
-  return render(request, 'galeria/criar_postagem.html', contexto)
+    categorias = Categoria.objects.all()
+    postagem = criarPost.objects.all()
+    form = PostForm(request.POST or None)
+    sucesso = False
+    if form.is_valid():
+        form.save()
+        sucesso = True
+    contexto = {
+        'postagem': postagem,
+        'form': form,
+        'sucesso': sucesso,
+        'categorias': categorias
+    }
+    return render(request, 'galeria/criar_postagem.html', contexto)
 
 def editar_postagem(request, pk):
     postagem = criarPost.objects.get(pk=pk)
