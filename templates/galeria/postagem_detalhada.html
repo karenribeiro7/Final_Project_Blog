@@ -49,7 +49,7 @@
                 <div class="col-md-6 col-md-3">
                     <p class="h3 font-titulos">Escreva um comentário</p>
                     <!-- inicio do formulário de comentários ajustar para id da postagem -->
-                    <form action ="{% url 'post' %}" method='POST' id="form">
+                    <form action ="{% url 'postagem_detalhada' pk=postagem.pk %}" method='POST' id="form">
                       {% csrf_token %}
                       <div class="mb-3 mt-3">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
