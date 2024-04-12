@@ -4,6 +4,7 @@ from .serializers import PostSerializer
 from .models import Post as criarPost
 from django.views.decorators.cache import cache_page
 from post.forms import PostForm, ComentarioForm
+from categorias.models import Categoria
 
 # Create your views here.
 def Post(request):
@@ -11,6 +12,7 @@ def Post(request):
 
 @cache_page(30)
 def criar_postagem(request):    
+    categorias = Categoria.objects.all()
     postagem = criarPost.objects.all()
     form = PostForm(request.POST or None)
     sucesso = False
@@ -20,7 +22,8 @@ def criar_postagem(request):
     contexto = {
         'postagem': postagem,
         'form': form,
-        'sucesso': sucesso
+        'sucesso': sucesso,
+        'categorias': categorias        
     }
     return render(request, 'galeria/criar_postagem.html', contexto)
 

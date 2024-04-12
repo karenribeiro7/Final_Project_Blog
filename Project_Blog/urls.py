@@ -17,7 +17,7 @@ urlpatterns = [
     path('login/', fazer_login, name='login'),    
     path('sobre/', sobre, name='sobre'), #OK
     path('contato/', contato, name='contato'), #OK
-    path('post/', Post, name='post'), #OK
+    path('post/', include ('post.urls')), #OK
     path('paineldousuario/', paineldousuario, name='paineldousuario'), #OK
     path('usuario/', include('usuario.urls')),
     path('gerenciar_perfil/', gerenciar_perfil, name='gerenciar_perfil'), #OK

@@ -795,20 +795,84 @@ input[type="checkbox"]:checked+.checkbox_post {
 
 .fb-contato-container{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-wrap: nowrap;  
-  margin: 30px 0 100px 80px; 
+  flex-wrap: wrap;  
+  margin: 30px 80px 100px 80px;
+  gap: 30px; 
 }
 
 .fb-contato-item {
   display: grid;
+  flex-basis: calc(25% - 10px); 
   grid-template-rows: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 12px;
   max-width: 300px;
+  height: 550px;
+  background-color: rgba(239, 239, 239, 1);
+  /* margin: 10px;  */
+  padding: 10px;
+}
+
+.fb-contato-item h5 {
+  padding: 10px 0 0 30px;
 }
 
 .fb-contato-item img {
   max-width: 250px;
+  padding-left: 30px;  
+}
+
+.fb-contato-item p {  
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #000;
+  padding: 0 30px;
+}
+
+.contato-links {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  padding-left: 30px;
+}
+
+.contato-links a {
+  text-decoration: none;
+  color: #000;
+}
+/* 
+.fb-contato-item:nth-child(3) {
+  flex-grow: 1;
+  flex-shrink: 0;
+} */
+
+@media screen and (max-width: 576px) {
+  .fb-contato-container {
+    margin: 30px 50px;    
+  }
+
+  .fb-contato-item {    
+    height: auto;
+    width: 400px;
+    padding: 20px;
+    justify-content: center;    
+    align-items: center;    
+  }
+  
+  .fb-contato-item img {
+    max-width: 250px;    
+  }
+
+  .fb-contato-item p {
+    font-size: 12px;
+    width: 250px;
+  }
+  
 }
