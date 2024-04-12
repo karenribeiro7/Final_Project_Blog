@@ -20,7 +20,8 @@
     <p class="retornar_link">
         << Voltar para Painel do usuário</p>
 
-            <form class="formulario_criacao_post">
+            <form class="formulario_criacao_post" method="post" action="{%  url 'gerenciar_postagem' %}">
+                {% csrf_token %}
 
                 <div class="mb-3 full-width-input">
                     <label for="titulo_postagem_usuario" class="label_criacao_post">TÍTULO DA POSTAGEM</label>
@@ -85,17 +86,20 @@
                 </div>
 
                 <div class="mb-3 full-width-input">
+                    <label for="corpo_descricao_usuario" class="label_criacao_post">DESCRICAO</label>
+                    <textarea class="form-control barra_criacao_post corpo_post" id="corpo_descricao_usuario"></textarea>
+                </div>
+
+                <div class="mb-3 full-width-input">
                     <label for="corpo_postagem_usuario" class="label_criacao_post">CORPO DA POSTAGEM</label>
                     <textarea class="form-control barra_criacao_post corpo_post" id="corpo_postagem_usuario"></textarea>
                 </div>
-                
-            <div>
-                <a href="{% url 'criar_postagem' %}">
-                    <button class="botao-criar-post">
-                        <i class="bi bi-plus-lg"></i> POSTAR</button>
-                </a>
-            </div>
-
+                <div>
+                    <a href="{% url 'criar_postagem' %}">
+                        <button class="botao-criar-post" type="submit" >
+                            <i class="bi bi-plus-lg"></i> POSTAR</button>
+                    </a>
+                </div>                        
             </form>
 </main>
 

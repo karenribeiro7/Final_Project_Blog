@@ -21,6 +21,22 @@ def gerenciar_postagem(request):
     }
     return render(request, 'galeria/postagemdousuario.html', contexto)
 
+
+
+def editar_postagem(request, pk):
+    postagem = criarPost.objects.get(pk=pk)
+    form = PostForm(request.POST or None, instance=postagem)
+    sucesso = False
+    if form.is_valid():
+        form.save()
+        sucesso = True
+    contexto = {
+        'postagem': postagem,
+        'form': form,
+        'sucesso': sucesso
+    }
+    return render(request, 'galeria/criar_postagem.html', contexto)
+
 def criar_postagem(request):
     categorias = Categoria.objects.all()
     postagem = criarPost.objects.all()
@@ -37,20 +53,6 @@ def criar_postagem(request):
     }
     return render(request, 'galeria/criar_postagem.html', contexto)
 
-def editar_postagem(request, pk):
-    postagem = criarPost.objects.get(pk=pk)
-    form = PostForm(request.POST or None, instance=postagem)
-    sucesso = False
-    if form.is_valid():
-        form.save()
-        sucesso = True
-    contexto = {
-        'postagem': postagem,
-        'form': form,
-        'sucesso': sucesso
-    }
-    return render(request, 'galeria/criar_postagem.html', contexto)
-                    
 def excluir_postagem(request, pk):
     postagem = criarPost.objects.get(pk=pk)
     postagem.delete()
