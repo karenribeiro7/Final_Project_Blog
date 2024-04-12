@@ -9,7 +9,7 @@ class Post(models.Model):
     titulo = models.CharField(max_length=150, null=False)
     slug = models.SlugField(unique=True, null=True)
     descricao = models.TextField(null=False)
-    imagem = models.ImageField(upload_to='imagens/', blank=True)
+    imagem = models.ImageField(upload_to='imagens/', null=True, blank=True)
     texto = models.TextField(null=False)
 
     dt_criacao = models.DateTimeField(auto_now_add=True)

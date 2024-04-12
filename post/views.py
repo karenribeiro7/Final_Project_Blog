@@ -1,10 +1,13 @@
 from django.http import Http404
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from rest_framework.viewsets import ModelViewSet
 from .serializers import PostSerializer  
 from .models import Post as criarPost
 from post.forms import PostForm, ComentarioForm
 from categorias.models import Categoria
+from inicio.views import inicio
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 # Create your views here.
@@ -16,14 +19,14 @@ def postagem_detalhada(request, pk):
     return render(request, 'galeria/postagem_detalhada.html', contexto)
 
 def gerenciar_postagem(request):
-    postagem = criarPost.objects.all()
+    postagens_usuario = criarPost.objects.filter(usuario=request.user)
     contexto = {
-        'postagem': postagem
+        'postagens_usuario': postagens_usuario
     }
     return render(request, 'galeria/postagemdousuario.html', contexto)
 
 
-
+@login_required
 def editar_postagem(request, pk):
     postagem = criarPost.objects.get(pk=pk)
     form = PostForm(request.POST or None, instance=postagem)
@@ -31,13 +34,15 @@ def editar_postagem(request, pk):
     if form.is_valid():
         form.save()
         sucesso = True
+        return redirect('postagem_detalhada', pk=postagem.pk)
     contexto = {
         'postagem': postagem,
         'form': form,
         'sucesso': sucesso
     }
-    return render(request, 'galeria/criar_postagem.html', contexto)
-
+    return render(request, 'galeria/editar_postagem.html', contexto)
+ 
+ 
 def criar_postagem(request):
     template_name = 'galeria/criar_postagem.html'
     categorias = Categoria.objects.all()
@@ -52,7 +57,7 @@ def criar_postagem(request):
             post.slug = form.cleaned_data['titulo'].replace(' ', '-').lower()
             post.save()
             sucesso = True
-            return redirect('criar_postagem')
+            return redirect('postagem_detalhada', pk=post.pk)
         else:
             print(form.errors)
             raise Http404
@@ -70,8 +75,11 @@ def criar_postagem(request):
 
 def excluir_postagem(request, pk):
     postagem = criarPost.objects.get(pk=pk)
-    postagem.delete()
-    return render(request, 'galeria/postagem.html')
+    if request.method == 'POST':
+        postagem.delete()
+        messages.success(request, 'A postagem foi excluída com sucesso.')
+        return redirect('gerenciar_postagem')
+    return render(request, 'galeria/postagemdousuario.html')
 
 def addcomentario (request, pk):
     postagem = criarPost.objects.get(pk=pk)

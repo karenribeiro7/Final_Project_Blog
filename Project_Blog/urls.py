@@ -14,7 +14,7 @@ router = SimpleRouter(trailing_slash=False)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio , name='inicio'), 
-    path('', logout_user , name='inicio'), 
+    #path('', logout_user , name='inicio'), 
     path('cadastro/', cadastro_user, name='cadastro'),
     path('login/', fazer_login, name='login'),    
     path('sobre/', sobre, name='sobre'), #OK
