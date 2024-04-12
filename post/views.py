@@ -7,6 +7,7 @@ from post.forms import PostForm, ComentarioForm
 from categorias.models import Categoria
 from inicio.views import inicio
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 # Create your views here.
@@ -18,9 +19,9 @@ def postagem_detalhada(request, pk):
     return render(request, 'galeria/postagem_detalhada.html', contexto)
 
 def gerenciar_postagem(request):
-    postagem = criarPost.objects.all()
+    postagens_usuario = criarPost.objects.filter(usuario=request.user)
     contexto = {
-        'postagem': postagem
+        'postagens_usuario': postagens_usuario
     }
     return render(request, 'galeria/postagemdousuario.html', contexto)
 
@@ -76,6 +77,8 @@ def excluir_postagem(request, pk):
     postagem = criarPost.objects.get(pk=pk)
     if request.method == 'POST':
         postagem.delete()
+        messages.success(request, 'A postagem foi excluída com sucesso.')
+        return redirect('gerenciar_postagem')
     return render(request, 'galeria/postagemdousuario.html')
 
 def addcomentario (request, pk):
