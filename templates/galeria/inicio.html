@@ -30,12 +30,12 @@
           <div class="row g-0">
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title font-titulos h1">{{ postagem.titulo }}</h5>
+                <h5 class="card-title font-titulos h1"> {{ postagem.titulo }}</h5>
                 <div class="mt-2 mb-2">
-                  <small class="text-bg-light font-titulos text-secondary">{{ postagem.dt_criacao }}</small>
-                  <small class="text-bg-light font-titulos text-primary ms-3">{{ postagem.categoria }}</small>
+                  <small class="text-bg-light font-titulos text-secondary">     {{ postagem.dt_criacao }}</small>
+                  <small class="text-bg-light font-titulos text-primary ms-3">     {{ postagem.categoria }}</small>
                 </div>
-                <p class="card-text fs-5 pt-3">{{ postagem.descricao }}</p>
+                <p class="card-text fs-5 pt-3">     {{ postagem.descricao }}</p>
                 <div class="">
                   <a href="{% url 'postagem_detalhada' pk=postagem.pk %}"> <!-- precisa da id do post -->
                     <button type="button" class="btn btn-outline-primary">Confira na íntegra</button>
