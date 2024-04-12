@@ -1,4 +1,5 @@
 from django.urls import path
+from . import views
 from post.views import criar_postagem, gerenciar_postagem, postagem_detalhada
 
 urlpatterns = [

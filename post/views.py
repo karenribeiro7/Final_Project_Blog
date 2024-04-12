@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.http import Http404
+from django.shortcuts import redirect, render
 from rest_framework.viewsets import ModelViewSet
 from .serializers import PostSerializer  
 from .models import Post as criarPost
-from django.views.decorators.cache import cache_page
 from post.forms import PostForm, ComentarioForm
 from categorias.models import Categoria
+
 
 # Create your views here.
 def postagem_detalhada(request, pk):
@@ -22,20 +23,34 @@ def gerenciar_postagem(request):
     return render(request, 'galeria/postagemdousuario.html', contexto)
 
 def criar_postagem(request):
+    template_name = 'galeria/criar_postagem.html'
     categorias = Categoria.objects.all()
     postagem = criarPost.objects.all()
-    form = PostForm(request.POST or None)
     sucesso = False
-    if form.is_valid():
-        form.save()
-        sucesso = True
+    if request.method == 'POST':
+        form = PostForm(request.POST or None, request.FILES)
+        
+        if form.is_valid():
+            post = form.save(False)
+            post.usuario = request.user
+            post.slug = form.cleaned_data['titulo'].replace(' ', '-').lower()
+            post.save()
+            sucesso = True
+            return redirect('criar_postagem')
+        else:
+            print(form.errors)
+            raise Http404
+
+    
+    else:
+            form = PostForm()
     contexto = {
         'postagem': postagem,
         'form': form,
         'sucesso': sucesso,
         'categorias': categorias
     }
-    return render(request, 'galeria/criar_postagem.html', contexto)
+    return render(request, template_name, contexto)
 
 def editar_postagem(request, pk):
     postagem = criarPost.objects.get(pk=pk)
