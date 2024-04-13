@@ -1,0 +1,106 @@
+{% extends 'galeria/base.html' %}
+{% load static %}
+{% block title %}Postagem detalhada{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <!-- Postagem -->
+        <div class="row">
+            <div class="col-md-9">
+              <!-- título da postage, -->
+              <div class="container-fluid pt-5 ps-4">
+                <p class="h1 font-titulos">{{ postagem.titulo }}</p>
+                <p class="h5 card-subtitle">{{ postagem.subtitulo }}</p>
+              </div>
+              <!-- informações da postagem -->
+              <div class="container-fluid ps-4 pb-3">
+                <small class="text-secondary">Data de criação: {{ postagem.dt_criacao }}</small>
+                <small class="text-bg-light font-titulos text-primary ms-3">{{ postagem.categoria }}</small>
+              </div>
+                <!-- imagem da postagen -->
+              <div class="container-fluid ps-4">
+                <img src="{{ postagem.imagem.url }}" class="img-postagemdetalhada" alt="...">
+                <p> {{ postagem.descricao }} </p>
+              </div>
+              <!-- Texto da postagem -->
+              <div class="container-fluid pt-3 ps-4">
+                <p>{{ postagem.texto }}</p>
+              </div>
+              <!-- Card de apresentação da autora -->
+              <div class="container-fluid pt-4 ps-4 pb-3">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title font-titulos">{{ postagem.usuario }}</h5>
+                          <p class="">Quer saber quem criou a postagem? <br>
+                            Leia o nome acima.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <!-- comentarios -->
+        <div class="container-fluid ps-4 pt-4 pb-5">
+            <div class="row">
+                <div class="col-md-6 col-md-3">
+                    <p class="h3 font-titulos">Escreva um comentário</p>
+                    <!-- inicio do formulário de comentários ajustar para id da postagem -->
+                    <form action ="{% url 'postagem_detalhada' pk=postagem.pk %}" method='POST' id="form">
+                      {% csrf_token %}
+                      <div class="mb-3 mt-3">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>
+                      <div class="input-group mb-3">
+                          <button class="btn" type="button">Comentar como:</button>
+                          <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                            <option selected>Escolha</option>
+                            <option value="1">Anônimo</option>
+                            <!-- verificar lógica para escolher usuário -->
+                            <option value="2">@usuario</option>
+                          </select>
+                      </div>
+                      <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+                          <button class="btn btn-primary" type="button">Comentar</button>
+                      </div>
+                    </form>                     
+                </div>
+                <!-- mostrar comentários -->
+                <div class="col-md-6 col-md-3">
+                        
+                    <div class="container-fluid">
+
+                            {% for comentario in comentarios %}
+
+                        <div class="container-fluid pt-2 pb-4">
+                            <!-- comentario autor -->
+                            <span class="h4 font-titulos">{{ comentario.autor }}</span>
+                            <!-- comentario data -->
+                            <span class="text-secondary ps-4">{{ comentario.data }}</span>
+                        </div>
+                        <!-- conteudo do comentario -->
+                        <div class="container-fluid">
+                            <p class="text-bg-light p-2">{{ comentario.conteudo }}</p>
+                        </div>
+                                          {% endfor %}
+
+                        <!-- PAGINAÇÃO ainda precisa ajustar -->
+                        <div class="container-fluid">
+                            <nav aria-label="...">
+                                <ul class="pagination pagination-sm justify-content-end">
+                                  <li class="page-item active" aria-current="page">
+                                    <span class="page-link">1</span>
+                                  </li>
+                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                </ul>
+                              </nav>
+                        </div>
+                    </div>        
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

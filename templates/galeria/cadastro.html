@@ -1,0 +1,32 @@
+{% extends "galeria/base.html" %}
+{% load static %}
+{% block title %}Cadastre-se{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid mt-5 mb-5 p-5">
+    <div class="row justify-content-md-center">
+        <div class="col col-md-2 pt-5">
+            <img src="{% static 'assets\logo-cadastro.svg' %}" class="img-fluid" alt="logo caneca tech">
+            <p class='h3 font-titulos text-center p-3'>Bem-vinde!</p>
+        </div>
+        <div class="col-md-auto ps-5">
+            <form action="{% url 'cadastro' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <!-- Botão de envio -->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-primary" type="submit">Cadastrar</button>
+                </div>
+            </form>
+            {% if form.errors %}
+             <div class="alert alert-danger" role="alert">
+                 Entrada de dados incorreta. Por favor, tente novamente.
+             </div>
+            {% endif %}
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}
