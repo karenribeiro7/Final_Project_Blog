@@ -462,7 +462,7 @@ input[type="checkbox"]:checked+.checkbox_post {
   align-content: flex-start;
 }
 
-.conteudo_post:nth-child(3) {
+.conteudo_post:nth-last-child() {
   flex-grow: 1;
   align-self: start;
 }

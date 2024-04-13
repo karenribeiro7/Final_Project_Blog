@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Painel do Usuário{% endblock %}
 
-#{% if user.is_authenticated %}
+{% if user.is_authenticated %}
 {% block login %}
 <div class="cabecalho_usuario">
     <span class="font-titulos media-desktop">Olá, {{ usuario.nome }}!</span>
