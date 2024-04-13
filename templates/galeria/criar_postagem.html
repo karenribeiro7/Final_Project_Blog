@@ -20,11 +20,12 @@
     <p class="retornar_link">
         << Voltar para Painel do usuário</p>
 
-            <form class="formulario_criacao_post">
+            <form action="{% url 'criar_postagem' %}" enctype="multipart/form-data" class="formulario_criacao_post" method="post">
+                {% csrf_token %}
 
                 <div class="mb-3 full-width-input">
                     <label for="titulo_postagem_usuario" class="label_criacao_post">TÍTULO DA POSTAGEM</label>
-                    <input type="text" class="form-control barra_criacao_post" id="titulo_postagem_usuario">
+                    <input type="text" class="form-control barra_criacao_post" id="titulo_postagem_usuario" name="titulo">
                 </div>
                 <div class="grid-container">
 
@@ -38,7 +39,7 @@
 
                             <div class="input-group" style="font-family: 'Share Tech Mono', monospace;">
                                
-                                <select class="form-select barra_criacao_post" id="tags_postagem_usuario"
+                                <select name="categoria" class="form-select barra_criacao_post" id="tags_postagem_usuario"
                                     aria-label="Example select with button addon">
                                     <option selected>Escolher tags </option>
                                     {% for categoria in categorias %}                          
@@ -77,7 +78,7 @@
                 
                 <div class="mb-3 full-width-input">
                     <div class="input-group" style="font-family: 'Share Tech Mono', monospace;">
-                        <input type="file" class="form-control barra_criacao_post" id="anexar_midia"
+                        <input name="imagem" type="file" class="form-control barra_criacao_post" id="anexar_midia"
                             aria-describedby="inputGroupFileAddon04" aria-label="Procurar">
                         <button class="btn btn-outline-success-alteracao" type="button"
                             id="anexar_midia">UPLOAD</button>
@@ -85,13 +86,18 @@
                 </div>
 
                 <div class="mb-3 full-width-input">
+                    <label for="corpo_descricao_usuario" class="label_criacao_post">DESCRICAO</label>
+                    <textarea class="form-control barra_criacao_post corpo_post" id="corpo_descricao_usuario" name="descricao"></textarea>
+                </div>
+
+                <div class="mb-3 full-width-input">
                     <label for="corpo_postagem_usuario" class="label_criacao_post">CORPO DA POSTAGEM</label>
-                    <textarea class="form-control barra_criacao_post corpo_post" id="corpo_postagem_usuario"></textarea>
+                    <textarea class="form-control barra_criacao_post corpo_post" id="corpo_postagem_usuario" name="texto"></textarea>
                 </div>
                 
             <div>
                 <a href="{% url 'criar_postagem' %}">
-                    <button class="botao-criar-post">
+                    <button class="botao-criar-post" type="Submit" value="Salvar">
                         <i class="bi bi-plus-lg"></i> POSTAR</button>
                 </a>
             </div>

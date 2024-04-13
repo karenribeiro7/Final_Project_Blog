@@ -48,16 +48,22 @@
               <a class="nav-link font-titulos" href="{% url 'contato' %}">CONTATO</a>
             </li>
             {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link font-titulos" href="{% url 'paineldousuario' %}">PAINEL DO USUÁRIO</a>
+            </li>
             {% else %}
             <li class="nav-item">
               <a class="nav-link font-titulos" href="{% url 'cadastro' %}">CADASTRE-SE</a>
             </li>
             {% endif %}
           </ul>
-          <form class="d-flex" role="search">
+
+          <!-- barra de busca -->
+          <form class="d-flex" role="search" method="POST" action="{% url 'buscar_posts' %}">
+            {% csrf_token %}
             <div class="input-group">
               <input class="form-control barra_pesquisa font-titulos" type="search" placeholder="Buscar"
-                aria-label="Search">
+                aria-label="Search" name="searched">
               <button class="btn btn-outline-success-ctech font-titulos me-4" type="butt">                
                 <i class="bi bi-search"></i>
               </button>
@@ -69,7 +75,7 @@
           {% if user.is_authenticated %}
           {% block login %}
             <div class="cabecalho_usuario">
-              <span class="font-titulos media-desktop">Olá, {{ usuario.nome }}!</span> 
+              <span class="font-titulos media-desktop">Olá, {{ usuario.nome }}!</span>
               <span class="nav-link font-titulos media-mobile">OLÁ, {{ usuario.nome }}! </span> 
               <div class="logo_usuario"></div>       
             </div>

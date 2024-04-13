@@ -17,9 +17,10 @@
                 <small class="text-secondary">Data de criação: {{ postagem.dt_criacao }}</small>
                 <small class="text-bg-light font-titulos text-primary ms-3">{{ postagem.categoria }}</small>
               </div>
-              <!-- imagem da postagen -->
+                <!-- imagem da postagen -->
               <div class="container-fluid ps-4">
-                <img src="{{ post.imagem }}" class="img-fluid" alt="...">
+                <img src="{{ postagem.imagem.url }}" class="img-postagemdetalhada" alt="...">
+                <p> {{ postagem.descricao }} </p>
               </div>
               <!-- Texto da postagem -->
               <div class="container-fluid pt-3 ps-4">
@@ -29,13 +30,11 @@
               <div class="container-fluid pt-4 ps-4 pb-3">
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src="..." class="img-fluid rounded-start" alt="...">
-                      </div>
                       <div class="col-md-8">
                         <div class="card-body">
                           <h5 class="card-title font-titulos">{{ postagem.usuario }}</h5>
-                          <p class="card-text">Usuário tem descrição? se tiver inserir aqui.</p>
+                          <p class="">Quer saber quem criou a postagem? <br>
+                            Leia o nome acima.</p>
                         </div>
                       </div>
                     </div>

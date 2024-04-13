@@ -4,7 +4,7 @@ from inicio.models import Squad
 
 # Create your views here.
 def inicio(request):
-    postagens = Post.objects.all()    
+    postagens = Post.objects.order_by('-dt_criacao')    
     return render(request, 'galeria/inicio.html', {'postagens': postagens})
 
 def sobre(request):    
