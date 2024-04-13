@@ -30,8 +30,11 @@
         {% for postagem in postagens %}       
         <div class="p-3 mb-3">
           <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{postagem.imagem.url}}" class="img-fluid rounded-start" alt="...">
+            </div>
             <div class="col-md-8">
-              <div class="card-body">
+              <div class="card-body ms-2">
                 <h5 class="card-title font-titulos h1"> {{ postagem.titulo }}</h5>
                 <div class="mt-2 mb-2">
                   <small class="text-bg-light font-titulos text-secondary">     {{ postagem.dt_criacao }}</small>
