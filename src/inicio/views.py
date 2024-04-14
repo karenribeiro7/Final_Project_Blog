@@ -5,15 +5,15 @@ from inicio.models import Squad
 # Create your views here.
 def inicio(request):
     postagens = Post.objects.order_by('-dt_criacao')    
-    return render(request, 'galeria/inicio.html', {'postagens': postagens})
+    return render(request, 'inicio.html', {'postagens': postagens})
 
 def sobre(request):    
-    return render(request, 'galeria/sobre.html')
+    return render(request, 'sobre.html')
 
 def contato(request):
     squads = Squad.objects.all()
-    return render(request, 'galeria/contato.html', {'squads': squads})
+    return render(request, 'contato.html', {'squads': squads})
 
 def postagem_detalhes(request, id):
     postagem = get_object_or_404(Post, pk=id)
-    return render(request, 'galeria/postagem_detalhada.html', {'postagem': postagem})
+    return render(request, 'postagem_detalhada.html', {'postagem': postagem})

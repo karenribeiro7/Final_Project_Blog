@@ -16,14 +16,14 @@ def postagem_detalhada(request, pk):
     contexto = {
         'postagem': postagem
     }
-    return render(request, 'galeria/postagem_detalhada.html', contexto)
+    return render(request, 'postagem_detalhada.html', contexto)
 
 def gerenciar_postagem(request):
     postagens_usuario = criarPost.objects.filter(usuario=request.user)
     contexto = {
         'postagens_usuario': postagens_usuario
     }
-    return render(request, 'galeria/postagemdousuario.html', contexto)
+    return render(request, 'postagemdousuario.html', contexto)
 
 
 @login_required
@@ -40,11 +40,11 @@ def editar_postagem(request, pk):
         'form': form,
         'sucesso': sucesso
     }
-    return render(request, 'galeria/editar_postagem.html', contexto)
+    return render(request, 'editar_postagem.html', contexto)
  
  
 def criar_postagem(request):
-    template_name = 'galeria/criar_postagem.html'
+    template_name = 'criar_postagem.html'
     categorias = Categoria.objects.all()
     postagem = criarPost.objects.all()
     sucesso = False
@@ -79,7 +79,7 @@ def excluir_postagem(request, pk):
         postagem.delete()
         messages.success(request, 'A postagem foi excluída com sucesso.')
         return redirect('gerenciar_postagem')
-    return render(request, 'galeria/postagemdousuario.html')
+    return render(request, 'postagemdousuario.html')
 
 def addcomentario (request, pk):
     postagem = criarPost.objects.get(pk=pk)
@@ -93,10 +93,10 @@ def addcomentario (request, pk):
         'form': form,
         'sucesso': sucesso
     }
-    return render(request, 'galeria/postagem_detalhada.html', contexto)
+    return render(request, 'postagem_detalhada.html', contexto)
 
 def listar_postagens(request):    
-    return render(request, 'galeria/lista_postagens.html')
+    return render(request, 'lista_postagens.html')
    
 
 class PostagemViewSet(ModelViewSet):
@@ -107,6 +107,6 @@ def buscar_posts(request):
     if request.method == "POST":
         searched = request.POST['searched'] # tentar tbm com () se der errado
         postagens = criarPost.objects.filter(titulo__contains=searched) # se "icontains" der errado usar só "contains", icontains serve para não fazer distinção entre maiúsculo/minúsculo
-        return render(request, 'galeria/resultado_busca.html', {'searched': searched, 'postagens': postagens})
+        return render(request, 'resultado_busca.html', {'searched': searched, 'postagens': postagens})
     else: 
-        return render(request, 'galeria/resultado_busca.html')
+        return render(request, 'resultado_busca.html')

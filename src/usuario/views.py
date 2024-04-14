@@ -22,7 +22,7 @@ def paineldousuario(request):
             'username': usuario.username,
             'email': usuario.email,
         }
-    return render(request, 'galeria/paineldousuario.html', {'usuario': dados_usuario} )
+    return render(request, 'paineldousuario.html', {'usuario': dados_usuario} )
 
 def cadastro_user(request):
     if request.method == 'POST':
@@ -40,7 +40,7 @@ def cadastro_user(request):
                 logger.error('Erro !!! Usuário não autenticado após o cadastro')
     else:
         form = CadastroForm()
-    return render(request, 'galeria/cadastro.html', {'form': form})
+    return render(request, 'cadastro.html', {'form': form})
 
 def fazer_login(request):
     if request.method == 'POST':
@@ -54,7 +54,7 @@ def fazer_login(request):
                 return redirect('paineldousuario')  # Redireciona para a página paineldousuario
     else:
         form = LoginForm()
-    return render(request, 'galeria/login.html', {'form': form})
+    return render(request, 'login.html', {'form': form})
 
     
 def gerenciar_perfil(request):
@@ -65,4 +65,4 @@ def gerenciar_perfil(request):
             usuario.email = email
             usuario.save()
             messages.success(request, 'Perfil atualizado com sucesso')
-    return render(request, 'galeria/gerenciar_perfil.html', {'usuario': usuario})
+    return render(request, 'gerenciar_perfil.html', {'usuario': usuario})
