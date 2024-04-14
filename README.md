@@ -42,13 +42,13 @@ Caneca Tech é um blog pessoal desenvolvido como projeto final no Bootcamp Back-
 4. Execute as migrações do banco de dados:
 
    ```
-   python manage.py migrate
+   python src/manage.py migrate
    ```
 
 5. Inicie o servidor:
 
    ```
-   python manage.py runserver
+   python src/manage.py runserver
    ```
 
 6. Acesse o blog em seu navegador em `http://localhost:8000`.
