@@ -1,22 +1,12 @@
 import os
 from pathlib import Path
+from split_settings.tools import include
 
+
+include("../settings.py")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e!#ecdd$&c@8zp4z1)i+pojf(*m&7!8s#=u5o7#jckce$56!9k'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
+BASE_DIR = globals()['BASE_DIR']
 
 # Application definition
 
