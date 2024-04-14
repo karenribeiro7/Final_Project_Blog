@@ -79,7 +79,7 @@
               <span class="nav-link font-titulos media-mobile">OLÁ, {{ usuario.nome }}! </span> 
               <div class="logo_usuario"></div>       
             </div>
-            <form action="{% url 'login' %}" method="post" id="logout-form">
+            <form action="{% url 'logout' %}" method="post" id="logout-form">
               {% csrf_token %}        
             <button class="botao-entrar font-titulos" type="submit">LOGOUT</button>
           </form>
