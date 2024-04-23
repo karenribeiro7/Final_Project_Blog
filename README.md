@@ -5,6 +5,8 @@
 
 Caneca Tech é um blog pessoal desenvolvido como projeto final no Bootcamp Back-end com Python e Django da WomakerCode. O objetivo deste projeto é fornecer um espaço para mulheres na área de tecnologia compartilharem seus conhecimentos e experiências.
 
+- Deploy: https://canecatech.pythonanywhere.com/
+
 ## Funcionalidades
 
 - Registro de usuário: Os usuários podem se cadastrar para criar postagens e comentar.
