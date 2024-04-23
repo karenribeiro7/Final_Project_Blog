@@ -58,5 +58,13 @@ Caneca Tech é um blog pessoal desenvolvido como projeto final no Bootcamp Back-
 Contribuições são bem-vindas! Sinta-se à vontade para abrir um PR ou relatar problemas.
 
 ## Autores
+- [Cintia Brito](https://github.com/CinBrito)
+- [Yara Daniele](https://github.com/YaraDanieleUchoa)
+- [Camilla Barros](https://github.com/cabarros3)
+- [Karen Ribeiro](https://github.com/karenribeiro7)
+- [Dayana Ferreira](https://github.com/Dayanaferrer)
+- [Flora Fentanes](https://github.com/Florafb)
+- [Natalia Marin](https://github.com/NaHaze)
+- [Melissa Gasque](https://github.com/MelissaGasque)
 
 
